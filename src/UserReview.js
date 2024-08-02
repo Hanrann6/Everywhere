@@ -1,23 +1,12 @@
 import React from "react";
 
-const UserReviews = ({ reviews }) => {
+const UserReview = (review) => {
   return (
-    <div className="review">
-      <h2>사용자 리뷰</h2>
-      <div className="review-list">
-        <h4>익명</h4>
-        <p>사용자 리뷰</p>
-      </div>
-      <div className="review-list">
-        <h4>익명</h4>
-        <p>사용자 리뷰</p>
-      </div>
-      <div className="review-list">
-        <h4>익명</h4>
-        <p>사용자 리뷰</p>
-      </div>
+    <div className="review-list">
+      <h4>{review.user}</h4>
+      <p>{review.comment}</p>
     </div>
   );
 };
 
-export default UserReviews;
+export default UserReview;
