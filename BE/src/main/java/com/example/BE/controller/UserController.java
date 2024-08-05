@@ -10,19 +10,23 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     private UserService userService;
-
-    @PostMapping("/create")
+    //test용
+    @GetMapping("user/hello")
+    public String hello(){
+        return "hello user!";
+    }
+    //회원가입 - test 성공
+    @PostMapping("user/create")
     public User registerUser(@RequestBody UserDTO userDTO) {
         return userService.registerUser(userDTO.getEmail(), userDTO.getPassword());
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestParam String email, @RequestParam String password) {
-        Optional<User> user = userService.loginUser(email, password);
+    //로그인 - test 성공
+    @PostMapping("user/login")
+    public ResponseEntity<String> loginUser(@RequestBody UserDTO userDTO) {
+        Optional<User> user = userService.loginUser(userDTO.getEmail(), userDTO.getPassword());
 
         if (user.isPresent()) {
             return ResponseEntity.ok("Login successful");
@@ -30,10 +34,10 @@ public class UserController {
             return ResponseEntity.status(401).body("Invalid email or password");
         }
     }
-
-    @DeleteMapping("/delete/{userId}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteUser(id);
+    //회원탈퇴 - test 성공
+    @DeleteMapping("user/delete/{user_id}")
+    public void deleteUser(@PathVariable Long user_id) {
+        userService.deleteUser(user_id);
     }
 }
 

@@ -12,7 +12,7 @@ import lombok.Setter;
 public class User {
 
     @Id
-    private int id;
+    private Long user_id;
 
     @Column(unique=true)
     private String email;

@@ -32,7 +32,7 @@ public class UserService {
         return Optional.empty();
     }
 
-    public void deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public void deleteUser(Long user_id) {
+        userRepository.deleteById(user_id);
     }
 }
