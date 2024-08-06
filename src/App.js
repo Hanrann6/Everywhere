@@ -1,17 +1,12 @@
 import "./App.css";
 
-import FacilityDetails from "./FacilityDetails";
-import UserReviews from "./UserReview";
-import ReviewForm from "./ReviewForm";
-import ReviewList from "./ReviewList";
+import Facility from "./Facility";
 
 function App() {
   return (
     <div className="App">
       <main>
-        <FacilityDetails />
-        <ReviewList />
-        <ReviewForm />
+        <Facility />
       </main>
     </div>
   );
