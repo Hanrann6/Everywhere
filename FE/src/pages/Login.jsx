@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import SignUp from "./SignUp.jsx";
+import React, { useState } from 'react';
 
 function Login() {
   //const [error, setError] = useState("");
-  const [userEmailId, setUserEmailId] = useState("");
-  const [userEmailDomain, setUserEmailDomain] = useState("");
-  const [userPW, setUserPW] = useState("");
+  const [userEmailId, setUserEmailId] = useState('');
+  const [userEmailDomain, setUserEmailDomain] = useState('');
+  const [userPW, setUserPW] = useState('');
 
-  const handleUserEmailId = (event) => {
+  const handleUserEmailId = event => {
     setUserEmailId(event.target.value);
   };
-  const handleUserEmailDomain = (event) => {
+  const handleUserEmailDomain = event => {
     setUserEmailDomain(event.target.value);
   };
-  const handleUserPW = (event) => {
+  const handleUserPW = event => {
     setUserPW(event.target.value);
   };
-  const onClickLogin = (event) => {
+  const onClickLogin = event => {
     event.preventDefault();
     const userEmail = userEmailId + userEmailDomain;
-    console.log("로그인:", { userEmail, userPW });
+    console.log('로그인:', { userEmail, userPW });
 
     //로그인 로직 설정
   };
@@ -29,7 +28,7 @@ function Login() {
       <div> 로그인 </div>
       <form method="post" action="서버 url">
         <label>
-          {" "}
+          {' '}
           이메일
           <input
             type="text"
@@ -39,7 +38,7 @@ function Login() {
             placeholder="이메일을 입력하세요"
             autoFocus
             required
-          ></input>
+          />
           <select
             name="userEmailDomain"
             value={userEmailDomain}
@@ -55,7 +54,7 @@ function Login() {
         </label>
 
         <label>
-          {" "}
+          {' '}
           비밀번호
           <input
             type="password"
@@ -64,7 +63,7 @@ function Login() {
             onChange={handleUserPW}
             placeholder="비밀번호를 입력하세요"
             required
-          ></input>
+          />
         </label>
 
         <button onClick={onClickLogin}> 로그인 </button>
