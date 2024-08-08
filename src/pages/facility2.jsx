@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-dom";
 import { useState } from "react";
 import styled from "styled-components";
-import FacilityImage from "./FacilityImage";
-import FacilityDetails from "./FacilityDetails";
-import Button from "./Button";
-import KeywordList from "./KeywordList";
+import FacilityImage from "../components/FacilityImage";
+import FacilityDetails from "../components/FacilityDetails";
+import Button from "../components/Button";
+import KeywordList from "../components/KeywordList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 

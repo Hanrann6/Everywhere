@@ -2,9 +2,9 @@ import React from "react";
 import { useNavigate } from "react-dom";
 import { useState } from "react";
 import styled from "styled-components";
-import FacilityImage from "./FacilityImage";
-import FacilityDetails from "./FacilityDetails";
-import Button from "./Button";
+import FacilityImage from "../components/FacilityImage";
+import FacilityDetails from "../components/FacilityDetails";
+import Button from "../components/Button";
 
 const ContentBox = styled.div`
   padding: 10px 20px;

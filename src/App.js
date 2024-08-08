@@ -1,6 +1,6 @@
 import "./App.css";
-import Button from "./Button";
-import Facility2 from "./facility2";
+import Button from "./components/Button";
+import Facility2 from "./pages/facility2";
 
 function App() {
   return (
