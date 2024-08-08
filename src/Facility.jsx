@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useParams } from "react-dom";
+import { useNavigate } from "react-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import FacilityImage from "./FacilityImage";

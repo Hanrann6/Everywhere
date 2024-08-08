@@ -1,12 +1,12 @@
 import "./App.css";
-
-import Facility from "./Facility";
+import Button from "./Button";
+import Facility2 from "./facility2";
 
 function App() {
   return (
     <div className="App">
       <main>
-        <Facility />
+        <Facility2 />
       </main>
     </div>
   );

@@ -8,17 +8,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -46,11 +35,12 @@
   margin: 50px 20px;
   padding: 5px 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .details-text__title {
-  font-size: 45px;
+  font-size: 5px;
   font-weight: 540;
 }
 
