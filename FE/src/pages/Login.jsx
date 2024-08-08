@@ -1,57 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import SignUp from "./SignUp.jsx";
 
-
- //0. 로그인 화면 1. 로그인 성공 2. 로그인 실패  3. 이메일/비밀번호 찾기 4. 회원가입 버튼
-
-function LogIn(props){
-  const [isLogIn, setIsLogIn] = useState(false);
+function Login() {
+  //const [error, setError] = useState("");
   const [userEmailId, setUserEmailId] = useState("");
-  const [userEmailDomain, setUserEmailDomain] = useState("@ewhain.net");
+  const [userEmailDomain, setUserEmailDomain] = useState("");
   const [userPW, setUserPW] = useState("");
-  
-  const handleUserEmailId = event => {
+
+  const handleUserEmailId = (event) => {
     setUserEmailId(event.target.value);
   };
-  const handleUserEmailDomain = event => {
+  const handleUserEmailDomain = (event) => {
     setUserEmailDomain(event.target.value);
   };
-  const handleUserPW = event => {
+  const handleUserPW = (event) => {
     setUserPW(event.target.value);
   };
-  const onClinckLogIn = (event) => {
-    event.preventDefault(); 
+  const onClickLogin = (event) => {
+    event.preventDefault();
     const userEmail = userEmailId + userEmailDomain;
-    }
+    console.log("로그인:", { userEmail, userPW });
 
-    //1. 로그인 성공 2. 로그인 실패 
+    //로그인 로직 설정
+  };
+
   return (
     <div>
-    <h2>로그인</h2>
-    <form method="post" action="서버 url/html 링크" >
-      <label>
-        <h4>이메일</h4>
-        <input type="text" name="userEmailId"  placeholder="Email" required></input>
-      </label>
-      <h5>@</h5>
-      <select name="userEmailDomain" required>
-        <option value="@ewhain.net">ewhain.net</option>
-        <option value="@ewha.ac.kr">ewha.ac.kr</option>
-      </select>
-      {/*서버로 userEmailId+userEmailDomain 전송하는 법?*/}
+      <div> 로그인 </div>
+      <form method="post" action="서버 url">
+        <label>
+          {" "}
+          이메일
+          <input
+            type="text"
+            name="userEmailId"
+            value={userEmailId}
+            onChange={handleUserEmailId}
+            placeholder="이메일을 입력하세요"
+            autoFocus
+            required
+          ></input>
+          <select
+            name="userEmailDomain"
+            value={userEmailDomain}
+            onChange={handleUserEmailDomain}
+            required
+          >
+            <option value="" disabled>
+              --이메일 도메인을 선택하세요--
+            </option>
+            <option value="@ewhain.net">ewhain.net</option>
+            <option value="@ewha.ac.kr">ewha.ac.kr</option>
+          </select>
+        </label>
 
-      <label>
-      <h4>비밀번호</h4>
-      <input type="password" name="userPassword"  placeholder="Password" required></input>
-      </label>
-      <input type="submit" value="로그인"></input>
-    </form>
-  </div>
-  )
+        <label>
+          {" "}
+          비밀번호
+          <input
+            type="password"
+            name="userPassword"
+            value={userPW}
+            onChange={handleUserPW}
+            placeholder="비밀번호를 입력하세요"
+            required
+          ></input>
+        </label>
+
+        <button onClick={onClickLogin}> 로그인 </button>
+      </form>
+    </div>
+  );
 }
 
-function ForgetEmail(){
-
-}
-function ForgetPassword(){
-
-}
+export default Login;
