@@ -16,7 +16,7 @@ public class UserController {
     //test용
     @GetMapping("user/hello")
     public String hello(){
-        return "hello user!";
+        return "Hello !";
     }
     //회원가입 - test 성공
     @PostMapping("user/create")
