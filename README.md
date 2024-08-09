@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![pupago_banner](https://user-images.githubusercontent.com/38778829/99610310-e99e0980-2a54-11eb-9ecf-a928d5a836f7.jpg)
+![Everywhere_banner](https://github.com/user-attachments/assets/c070ffa2-2b73-4411-bd3c-e0d6f3322ac7)
 </br>
 
 ![react](https://img.shields.io/badge/react-17.0.1-1cf?logo=react)
@@ -20,15 +20,15 @@
 
 ## 📌 프로젝트 소개
 
-<img width="100%" src="https://i.imgur.com/qOulV1k.png">
+<img width="100%" alt="Everywhere_mockup" src="https://github.com/user-attachments/assets/80191776-9ca9-4e93-b2e3-132916483a75">
 <p></p>
 
 <div align="center">
 
-> 이화인을 위한 공간 정보 포털, Everywhere입니다.  
+이화인을 위한 공간 정보 포털, Everywhere입니다.  
 
 Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드를 통해 검색할 수 있는 서비스입니다. 
-이화의 Everywhere를 1000배 활용하기 위해, Everywhere!
+이화의 Everywhere를 100배 활용하기 위해, Everywhere!
 
 </div>
 
@@ -93,8 +93,9 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 
 ## 🎨 Color Scheme
 
-|#5CA7E4|#60C0A4|#FADD68|
-| :--: | :--: | :--: |
-|![](https://i.imgur.com/F0kjHIW.jpg)|![](https://i.imgur.com/VJ4ezUK.jpg)|![](https://i.imgur.com/AkApNNT.jpg)|
+|#00462A EwhaGreen|#25691F SubGreen|
+| :--: | :--: |
+|![EwhaGreen](https://github.com/user-attachments/assets/5ad7ef2a-699c-4507-9a34-82029029312f)|![SubGreen](https://github.com/user-attachments/assets/053b05c1-f904-4f16-ac37-df6632ec165d)
+
 
 </br>
