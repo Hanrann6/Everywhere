@@ -7,6 +7,7 @@ import theme from './styles/theme.js';
 import Login from './pages/Login.jsx';
 import SignUp from './pages/Signup.jsx';
 import Home from './pages/Home.jsx';
+import Facility from './pages/Facility';
 
 function App() {
   return (
@@ -17,11 +18,11 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/" element={<Home />} />
+            <Route path="fac/:facId" element={<Facility />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
     </div>
   );
 }
-
 export default App;
