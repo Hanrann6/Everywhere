@@ -1,14 +1,13 @@
-import "./App.css";
-import Button from "./components/Button";
-import Facility2 from "./pages/facility2";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Facility from "./pages/Facility";
 
 function App() {
   return (
-    <div className="App">
-      <main>
-        <Facility2 />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="fac/:facId" element={<Facility />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

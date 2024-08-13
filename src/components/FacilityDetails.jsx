@@ -5,7 +5,7 @@ import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
-  margin: 10px 10px 0 10px;
+  margin: 12px 10px 0 10px;
   padding: 15px;
   background-color: #25691f 0.12;
   display: flex;
@@ -27,17 +27,27 @@ function FacilityDetails(props) {
 
   return (
     <Wrapper>
-      <Text color="black" size="20px" weight="600">
-        <FontAwesomeIcon icon={faLocationDot} />
+      <Text color="black" size="21.5px" weight="600">
+        <FontAwesomeIcon
+          size="lg"
+          style={{ marginRight: "8px", marginTop: "2px" }}
+          icon={faLocationDot}
+        />
         {location}
         {" | "}
         {name}
       </Text>
-      <Text color="#25691F" size="17px" weight="600">
-        <FontAwesomeIcon icon={faClock} />
+      <Text color="#25691F" size="18px" weight="600">
+        <FontAwesomeIcon
+          size="lg"
+          style={{ marginRight: "8px", marginTop: "2px" }}
+          icon={faClock}
+        />
         {time}
       </Text>
-      <Text color="rgb(0,0,0, 0.6)">{content}</Text>
+      <Text color="rgb(0,0,0, 0.6)" size="16px" weight="500">
+        {content}
+      </Text>
     </Wrapper>
   );
 }

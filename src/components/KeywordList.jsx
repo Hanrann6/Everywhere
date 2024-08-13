@@ -28,7 +28,7 @@ const keywordText = {
   //keywordMap은 자바스크립트 객체이다.
   socketYN: "콘센트",
   typingYN: "타이핑",
-  whispherYN: "소근소근 대화",
+  whisperYN: "소근소근 대화",
   loudYN: "큰소리로 대화",
   teamYN: "팀플",
   lieYN: "누울 수 있는",
