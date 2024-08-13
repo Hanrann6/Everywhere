@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const NabBarContainer = styled.div`
+const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.background};
   padding: 12px;
 `;
 
@@ -15,18 +15,18 @@ const Logo = styled.div`
 
   a {
     text-decoration: none;
-    color: var(--text-color);
+    color: ${({ theme }) => theme.textColor};
   }
 `;
 
 const LogoTextE = styled.span`
-  color: var(--EwhaGreen);
+  color: ${({ theme }) => theme.ewhaGreen};
   font-weight: bold;
   font-size: 1.7em;
 `;
 
 const LogoTextEverywhere = styled.span`
-  color: var(--text-color);
+  color: ${({ theme }) => theme.textColor};
   font-weight: bold;
   font-size: 1.3em;
 `;
@@ -45,10 +45,10 @@ const NavMenu = styled.nav`
 
     a {
       text-decoration: none;
-      color: var(--text-color);
+      color: ${({ theme }) => theme.textColor};
 
       &:hover {
-        color: var(--EwhaGreen);
+        color: ${({ theme }) => theme.ewhaGreen};
         font-weight: 900;
       }
     }
@@ -78,14 +78,14 @@ const MemberMenu = styled.div`
 
 const SignUpButton = styled.button`
   background-color: #ffffff;
-  color: var(--EwhaGreen);
-  border-color: var(--EwhaGreen);
+  color: ${({ theme }) => theme.ewhaGreen};
+  border-color: ${({ theme }) => theme.ewhaGreen};
 `;
 
 const LoginButton = styled.button`
-  background-color: var(--EwhaGreen);
+  background-color: ${({ theme }) => theme.ewhaGreen};
   color: #ffffff;
-  border-color: var(--EwhaGreen);
+  border-color: ${({ theme }) => theme.ewhaGreen};
 `;
 
 const NavBar = () => {
@@ -129,3 +129,5 @@ const NavBar = () => {
     </NavBarContainer>
   );
 };
+
+export default NavBar;
