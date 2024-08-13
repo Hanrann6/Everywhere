@@ -10,4 +10,9 @@ public class HomeController {
     public String home() {
         return "home"; // This refers to src/main/resources/templates/home.html
     }
+
+    @GetMapping("/home")
+    public String homeLink() {
+        return "home"; // This refers to src/main/resources/templates/home.html
+    }
 }
