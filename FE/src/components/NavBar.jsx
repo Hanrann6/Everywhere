@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const NabBarContainer = styled.div`
+const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,3 +129,5 @@ const NavBar = () => {
     </NavBarContainer>
   );
 };
+
+export default NavBar;

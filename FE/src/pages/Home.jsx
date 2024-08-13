@@ -4,16 +4,20 @@ import { useNavigate } from 'react-router-dom';
 
 import NavBar from '../components/NavBar';
 
-/*
-const navigate = useNavigate();
+function Home() {
+  /*
+  const navigate = useNavigate();
+  
+  function goToLogin() {
+  
+  }
+  */
 
-function goToLogin() {
-
+  return (
+    <div className="root">
+      <NavBar />
+    </div>
+  );
 }
-*/
 
-return (
-  <div className="root">
-    <NavBar></NavBar>
-  </div>
-)
+export default Home;
