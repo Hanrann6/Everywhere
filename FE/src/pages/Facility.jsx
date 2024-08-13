@@ -5,7 +5,6 @@ import FacilityImage from '../components/FacilityImage';
 import FacilityDetails from '../components/FacilityDetails';
 import Button from '../components/Button';
 import KeywordList from '../components/KeywordList';
-import NavBar from '../components/NavBar';
 import data from '../data.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
