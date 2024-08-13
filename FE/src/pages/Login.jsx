@@ -1,72 +1,70 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/Login/Button';
+import TextL from '../components/Login/TextL';
+import TextM from '../components/Login/TextM';
+import TextS from '../components/Login/TextS';
 
 function Login() {
-  //const [error, setError] = useState("");
-  const [userEmailId, setUserEmailId] = useState('');
-  const [userEmailDomain, setUserEmailDomain] = useState('');
-  const [userPW, setUserPW] = useState('');
+  const navigate = useNavigate();
 
-  const handleUserEmailId = event => {
-    setUserEmailId(event.target.value);
-  };
-  const handleUserEmailDomain = event => {
-    setUserEmailDomain(event.target.value);
+  const [userEmail, setUserEmail] = useState('');
+  const [userPW, setUserPW] = useState('');
+  const [loginCheck, setLoginCheck] = useState(false);
+
+  const handleUserEmail = event => {
+    setUserEmail(event.target.value);
   };
   const handleUserPW = event => {
     setUserPW(event.target.value);
   };
-  const onClickLogin = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    const userEmail = userEmailId + userEmailDomain;
-    console.log('로그인:', { userEmail, userPW });
-
-    //로그인 로직 설정
+    const response = await fetch('/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email: userEmail, password: userPW }),
+    });
+    const result = await response.json();
+    if (response.status === 200) {
+      setLoginCheck(true);
+      sessionStorage.setItem('email', result.email);
+      console.log('로그인 성공, 이메일 주소:' + result.email);
+      navigate('/');
+    } else if (response.status === 400) {
+      console.log('로그인 실패, 이메일 혹은 비밀번호가 틀림');
+    } else {
+      console.log('로그인 실패, 존재하지 않는 계정');
+    }
   };
 
   return (
     <div>
-      <div> 로그인 </div>
-      <form method="post" action="서버 url">
-        <label>
-          {' '}
-          이메일
-          <input
-            type="text"
-            name="userEmailId"
-            value={userEmailId}
-            onChange={handleUserEmailId}
-            placeholder="이메일을 입력하세요"
-            autoFocus
-            required
-          />
-          <select
-            name="userEmailDomain"
-            value={userEmailDomain}
-            onChange={handleUserEmailDomain}
-            required
-          >
-            <option value="" disabled>
-              --이메일 도메인을 선택하세요--
-            </option>
-            <option value="@ewhain.net">ewhain.net</option>
-            <option value="@ewha.ac.kr">ewha.ac.kr</option>
-          </select>
-        </label>
-
-        <label>
-          {' '}
-          비밀번호
-          <input
-            type="password"
-            name="userPassword"
-            value={userPW}
-            onChange={handleUserPW}
-            placeholder="비밀번호를 입력하세요"
-            required
-          />
-        </label>
-
-        <button onClick={onClickLogin}> 로그인 </button>
+      <div>
+        <TextL content="로그인" />
+        <TextM content="Everywhere에 로그인하고 전체 서비스를 누리세요" />
+      </div>
+      <form method="post" action="/user/login">
+        <input
+          type="text"
+          name="userEmail"
+          value={userEmail}
+          onChange={handleUserEmail}
+          placeholder="이화여자대학교 이메일을 입력하세요."
+          autoFocus
+          required
+        />
+        <input
+          type="password"
+          name="userPW"
+          value={userPW}
+          onChange={handleUserPW}
+          placeholder="비밀번호를 입력하세요"
+          required
+        />
+        <Button onClick={handleSubmit}> 로그인 </Button>
       </form>
     </div>
   );
