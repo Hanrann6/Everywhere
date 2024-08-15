@@ -13,4 +13,5 @@ export const Category = styled.button`
   border: none;
   border-radius: 12px;
   padding: 7px 15px;
+  white-space: nowrap;
 `;

@@ -29,7 +29,7 @@ const Home = () => {
                 <S.Horizontal>
                   <S.HorizontalUl>
                     {MENU_NAMES.map((menu, index) => (
-                      <Category name={menu} color={index === 0 && '#000'} />
+                      <Category key={menu} name={menu} color={index === 0 && '#000'} />
                     ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
