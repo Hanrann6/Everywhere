@@ -2,10 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme.js';
 
-import Home from './pages/Home.jsx';
-import Login from './pages/Login.jsx';
-import SignUp from './pages/Signup.jsx';
-import Facility from './pages/Facility.jsx';
+import { Home, Login, SignUp, Facility } from './pages';
 
 function App() {
   return (

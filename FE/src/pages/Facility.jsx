@@ -4,13 +4,12 @@ import styled from 'styled-components';
 import FacilityImage from '../components/FacilityImage';
 import FacilityDetails from '../components/FacilityDetails';
 import Button from '../components/Button';
-import NavBar from '../components/NavBar';
+import { NavBar } from '../components/NavBar/NavBar';
 import KeywordList from '../components/KeywordList';
 import data from '../data.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
   width: 100%;

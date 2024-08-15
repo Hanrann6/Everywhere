@@ -1,287 +1,135 @@
-import styled from 'styled-components';
-import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
 import bgImg from '../assets/home_bg.png';
 import resultIcon from '../assets/resultIcon.svg';
-import serchIcon from '../assets/serchIcon.svg';
+import * as S from '../styles/home';
+import { Category, NavBar } from '../components';
 
-const Category = styled.button`
-  background-color: ${props => props.bgColor};
-  color: ${({ theme }) => theme.white};
-  border: none;
-  border-radius: 12px;
-  padding: 7px 15px;
-`;
-
-const H2Text = styled.h2`
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  color: ${({ theme }) => theme.black};
-  transform: translateX(-50%);
-`;
-
-const Horizontal = styled.div`
-  display: flex;
-  justifiy-content: center;
-  gap: 15px;
-`;
-
-const HorizontalUl = styled.ul`
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding-left: 0;
-  align-items: center;
-  padding-inline-start: 20%;
-`;
-
-const CategoryUlLi = styled.li`
-  list-style: none;
-  justify-content: center;
-  padding: 3px;
-  margin: 3px 0;
-`;
-
-const SearchBtn = styled.button`
-  background-color: ${({ theme }) => theme.ewhaGreen};
-  color: ${({ theme }) => theme.white};
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
-`;
-
-const ResultIcon = styled.img`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 50%;
-`;
-
-const GreenBG = styled.div`
-  background-color: #e5ede4;
-  color: white;
-  width: 50px;
-  height: 600px;
-  padding: 50px;
-`;
-
-const Home = props => {
-  const [color, setColor] = useState(({ theme }) => theme.gray);
-
-  const onClick = () => {
-    if (color === props.theme.gray) {
-      setColor(props.theme.subGreen);
-    } else {
-      // 클릭을 비활성화하거나 아무 작업도 하지 않음
-      return;
-    }
-  };
+const Home = () => {
+  const MENU_NAMES = [
+    '전체',
+    'ECC',
+    '중앙도서관',
+    '학생문화관',
+    '학관',
+    '종합과학관',
+    '아산공학관',
+    '신공학관',
+    '신세계관',
+    '포스코관',
+  ];
 
   return (
-    <div className="root">
+    <S.Root>
       <NavBar />
       <section style={{ backgroundImage: { bgImg } }}>
-        <div className="main_img">
-          <H2Text>이화여자대학교 어디로 갈까요?</H2Text>
-          <div className="category_list">
-            <div className="vertical">
-              <ul>
-                <CategoryUlLi>
-                  <Horizontal>
-                    <HorizontalUl>
-                      <CategoryUlLi>
-                        <div className="lititle">
-                          <Category bgColor={({ theme }) => theme.black}>
-                            전체
-                          </Category>
-                        </div>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          ECC
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          중앙도서관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          학생문화관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          학관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          종합과학관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          아산공학관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          신공학관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          신세계관
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          포스코관
-                        </Category>
-                      </CategoryUlLi>
-                    </HorizontalUl>
-                  </Horizontal>
-                </CategoryUlLi>
-                <CategoryUlLi>
-                  <Horizontal>
-                    <HorizontalUl>
-                      <CategoryUlLi>
-                        <div className="lititle">
-                          <Category bgColor={({ theme }) => theme.black}>
-                            스터디
-                          </Category>
-                        </div>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          콘센트
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          타이핑
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          큰 소리로 대화
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          소근소근 대화
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          팀플
-                        </Category>
-                      </CategoryUlLi>
-                    </HorizontalUl>
-                  </Horizontal>
-                </CategoryUlLi>
-                <CategoryUlLi>
-                  <Horizontal>
-                    <HorizontalUl>
-                      <CategoryUlLi>
-                        <div className="lititle">
-                          <Category bgColor={({ theme }) => theme.black}>
-                            휴식
-                          </Category>
-                        </div>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          누울 수 있는
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          취식
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          편의시설
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          식음료점
-                        </Category>
-                      </CategoryUlLi>
-                    </HorizontalUl>
-                  </Horizontal>
-                </CategoryUlLi>
-                <CategoryUlLi>
-                  <Horizontal>
-                    <HorizontalUl>
-                      <CategoryUlLi>
-                        <div className="lititle">
-                          <Category bgColor={color} onClick={onClick}>
-                            예약
-                          </Category>
-                        </div>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          공간 예약
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          좌석 발급
-                        </Category>
-                      </CategoryUlLi>
-                    </HorizontalUl>
-                  </Horizontal>
-                </CategoryUlLi>
-                <CategoryUlLi>
-                  <Horizontal>
-                    <HorizontalUl>
-                      <CategoryUlLi>
-                        <div className="lititle">
-                          <Category bgColor={({ theme }) => theme.black}>
-                            기타
-                          </Category>
-                        </div>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          24시간
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          PC
-                        </Category>
-                      </CategoryUlLi>
-                      <CategoryUlLi>
-                        <Category bgColor={color} onClick={onClick}>
-                          프린터기
-                        </Category>
-                      </CategoryUlLi>
-                    </HorizontalUl>
-                  </Horizontal>
-                </CategoryUlLi>
-              </ul>
-            </div>
+        <div>
+          <S.H2Text>이화여자대학교 어디로 갈까요?</S.H2Text>
+          <div>
+            <ul>
+              <S.CategoryUlLi>
+                <S.Horizontal>
+                  <S.HorizontalUl>
+                    {MENU_NAMES.map((menu, index) => (
+                      <Category name={menu} color={index === 0 && '#000'} />
+                    ))}
+                  </S.HorizontalUl>
+                </S.Horizontal>
+              </S.CategoryUlLi>
+              <S.CategoryUlLi>
+                <S.Horizontal>
+                  <S.HorizontalUl>
+                    <S.CategoryUlLi>
+                      <div>
+                        <S.Category>스터디</S.Category>
+                      </div>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>콘센트</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>타이핑</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>큰 소리로 대화</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>소근소근 대화</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>팀플</S.Category>
+                    </S.CategoryUlLi>
+                  </S.HorizontalUl>
+                </S.Horizontal>
+              </S.CategoryUlLi>
+              <S.CategoryUlLi>
+                <S.Horizontal>
+                  <S.HorizontalUl>
+                    <S.CategoryUlLi>
+                      <div className="lititle">
+                        <S.Category>휴식</S.Category>
+                      </div>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>누울 수 있는</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>취식</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>편의시설</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>식음료점</S.Category>
+                    </S.CategoryUlLi>
+                  </S.HorizontalUl>
+                </S.Horizontal>
+              </S.CategoryUlLi>
+              <S.CategoryUlLi>
+                <S.Horizontal>
+                  <S.HorizontalUl>
+                    <S.CategoryUlLi>
+                      <div className="lititle">
+                        <S.Category>예약</S.Category>
+                      </div>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>공간 예약</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>좌석 발급</S.Category>
+                    </S.CategoryUlLi>
+                  </S.HorizontalUl>
+                </S.Horizontal>
+              </S.CategoryUlLi>
+              <S.CategoryUlLi>
+                <S.Horizontal>
+                  <S.HorizontalUl>
+                    <S.CategoryUlLi>
+                      <div>
+                        <S.Category>기타</S.Category>
+                      </div>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>24시간</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>PC</S.Category>
+                    </S.CategoryUlLi>
+                    <S.CategoryUlLi>
+                      <S.Category>프린터기</S.Category>
+                    </S.CategoryUlLi>
+                  </S.HorizontalUl>
+                </S.Horizontal>
+              </S.CategoryUlLi>
+            </ul>
           </div>
-          <SearchBtn>
+          <S.SearchBtn>
             <img src={resultIcon} alt="" />
-          </SearchBtn>
+          </S.SearchBtn>
         </div>
       </section>
 
       <footer>이용약관</footer>
-    </div>
+    </S.Root>
   );
 };
 
