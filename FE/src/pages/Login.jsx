@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../components/Login/Button';
-import TextL from '../components/Login/TextL';
-import TextM from '../components/Login/TextM';
-import TextS from '../components/Login/TextS';
+import {
+  Container,
+  StyledHeader,
+  StyledContent,
+} from '../components/Login/Container';
+import { Button, TextButton } from '../components/Login/Button';
+import { Input } from '../components/Login/Input';
 
 function Login() {
   const navigate = useNavigate();
-
   const [userEmail, setUserEmail] = useState('');
   const [userPW, setUserPW] = useState('');
   const [loginCheck, setLoginCheck] = useState(false);
@@ -41,32 +43,34 @@ function Login() {
   };
 
   return (
-    <div>
-      <div>
-        <TextL content="로그인" />
-        <TextM content="Everywhere에 로그인하고 전체 서비스를 누리세요" />
-      </div>
-      <form method="post" action="/user/login">
-        <input
-          type="text"
-          name="userEmail"
-          value={userEmail}
-          onChange={handleUserEmail}
-          placeholder="이화여자대학교 이메일을 입력하세요."
-          autoFocus
-          required
-        />
-        <input
-          type="password"
-          name="userPW"
-          value={userPW}
-          onChange={handleUserPW}
-          placeholder="비밀번호를 입력하세요"
-          required
-        />
-        <Button onClick={handleSubmit}> 로그인 </Button>
-      </form>
-    </div>
+    <Container>
+      <StyledHeader>
+        <h1> Everywhere </h1>
+      </StyledHeader>
+      <StyledContent>
+        <form method="post" action="/user/login">
+          <Input
+            type="text"
+            name="userEmail"
+            value={userEmail}
+            onChange={handleUserEmail}
+            placeholder="이화여자대학교 이메일을 입력하세요."
+            autoFocus
+            required
+          />
+          <Input
+            type="password"
+            name="userPW"
+            value={userPW}
+            onChange={handleUserPW}
+            placeholder="비밀번호를 입력하세요"
+            required
+          />
+          <Button onClick={handleSubmit}> 로그인 </Button>
+        </form>
+      </StyledContent>
+      <TextButton>아직 회원이 아니신가요? </TextButton>
+    </Container>
   );
 }
 

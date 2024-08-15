@@ -1,21 +1,25 @@
 import styled from 'styled-components';
-const ewhaGreen = '#00462A';
-const black = '#000000';
-const white = '#FFFFFF';
+import theme from '../../styles/theme.js';
 
-const Button = styled.button`
-  background-color: ${props => props.bgColor || ewhaGreen};
-  color: ${props => props.color || white};
+export const Button = styled.button`
+  background-color: ${props => props.bgColor || theme.ewhaGreen};
+  color: ${props => props.color || theme.backGround};
   border: none;
   padding: 8px 22px;
   font-size: 17px;
   border-radius: 5px;
   transition: background-color 0.1s;
   &:hover {
-    background-color: white;
-    color: ewhaGreen;
-    border: 1px solid ewhaGreen;
+    background-color: ${props => props.bgColor || theme.backGround};
+    color: ${props => props.color || theme.ewhaGreen};
+    border: 1px solid #ffffff; //#FFFFFF를 theme에서 접근하는 법?
   }
 `;
 
-export default Button;
+export const TextButton = styled.button`
+  background-color: none;
+  border: none;
+  margin: 30px;
+  font-size: 17px;
+  text-decoration-line: underline;
+`;
