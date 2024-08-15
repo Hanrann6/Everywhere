@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FacilityImage from '../components/FacilityImage';
 import FacilityDetails from '../components/FacilityDetails';
 import Button from '../components/Button';
+import NavBar from '../components/NavBar';
 import KeywordList from '../components/KeywordList';
 import data from '../data.json';
 

@@ -1,13 +1,11 @@
-import React, { Component } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme.js';
 
 import Home from './pages/Home.jsx';
 import Login from './pages/Login.jsx';
-import SignUp from './pages/SignUp.jsx';
-import Facility from './pages/Facility';
+import SignUp from './pages/Signup.jsx';
+import Facility from './pages/Facility.jsx';
 
 function App() {
   return (
