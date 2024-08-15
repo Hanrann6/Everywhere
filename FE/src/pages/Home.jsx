@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import bgImg from '../assets/home_bg.png';
+import resultIcon from '../assets/resultIcon.svg';
+import serchIcon from '../assets/serchIcon.svg';
 
 const Category = styled.button`
   background-color: ${props => props.bgColor};
@@ -52,6 +54,20 @@ const SearchBtn = styled.button`
   position: absolute;
   left: 50%;
   transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
+`;
+
+const ResultIcon = styled.img`
+  padding-top: 20px;
+  padding-bottom: 20px;
+  left: 50%;
+`;
+
+const GreenBG = styled.div`
+  background-color: #e5ede4;
+  color: white;
+  width: 50px;
+  height: 600px;
+  padding: 50px;
 `;
 
 const Home = props => {
@@ -258,9 +274,12 @@ const Home = props => {
               </ul>
             </div>
           </div>
-          <SearchBtn />
+          <SearchBtn>
+            <img src={resultIcon} alt="" />
+          </SearchBtn>
         </div>
       </section>
+
       <footer>이용약관</footer>
     </div>
   );
