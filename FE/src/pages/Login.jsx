@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -10,6 +10,7 @@ import { Input } from '../components/Login/Input';
 
 function Login() {
   const navigate = useNavigate();
+
   const [userEmail, setUserEmail] = useState('');
   const [userPW, setUserPW] = useState('');
   const [loginCheck, setLoginCheck] = useState(false);
