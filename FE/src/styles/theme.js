@@ -1,17 +1,17 @@
 const theme = {
   ewhaGreen: '#00462a',
-  GreenButton: '25691F',
-  backGround: '#ffffff',
-  textColor: '#000000',
-  grayButton: '#979797',
+  subGreen: '25691F',
+  black: '#000000',
+  gray: '#979797',
+  white: '#ffffff',
 };
 
 export default theme;
 
 /* 
 ${({ theme }) => theme.ewhaGreen};
-${({ theme }) => theme.GreenButton};
-${({ theme }) => theme.backGround};
-${({ theme }) => theme.textColor};q
-${({ theme }) => theme.grayButton};
+${({ theme }) => theme.subGreen;
+${({ theme }) => theme.black};
+${({ theme }) => theme.gray};
+${({ theme }) => theme.white;
 */
