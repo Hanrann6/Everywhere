@@ -45,5 +45,6 @@ module.exports = {
     // 셀프 클로징 태그 가능하면 적용
     'react/jsx-curly-brace-presence': 'warn',
     // jsx 내 불필요한 중괄호 금지
+    'react/prop-types': 'off'
   },
 };

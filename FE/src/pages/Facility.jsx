@@ -1,16 +1,15 @@
-import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import styled from "styled-components";
-import FacilityImage from "../components/FacilityImage";
-import FacilityDetails from "../components/FacilityDetails";
-import Button from "../components/Button";
-import KeywordList from "../components/KeywordList";
-import NavBar from "../components/NavBar";
-import data from "../data.json";
+import React from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import FacilityImage from '../components/FacilityImage';
+import FacilityDetails from '../components/FacilityDetails';
+import Button from '../components/Button';
+import { NavBar } from '../components/NavBar/NavBar';
+import KeywordList from '../components/KeywordList';
+import data from '../data.json';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -66,14 +65,14 @@ function Facility() {
   const { facId } = useParams();
 
   //useParams을 통해 url에서 받은 파라미터인 facId값을 json파일의 facId와 비교하여 같은 객체를 details에 저장
-  const details = data.facility.find((fac) => fac.facId === Number(facId));
+  const details = data.facility.find(fac => fac.facId === Number(facId));
   //details에서 value값 출력
 
   return (
     console.log({ details }),
     (
       <Wrapper>
-        <NavBar/>
+        <NavBar />
 
         <Header>
           <GoBack onClick={() => navigate(-1)}>
@@ -98,13 +97,13 @@ function Facility() {
               <Button
                 title="리뷰 확인하기"
                 onClick={() => {
-                  navigate("/review");
+                  navigate('/review');
                 }}
               />
               <Button
                 title="리뷰 작성하기"
                 onClick={() => {
-                  navigate("/write");
+                  navigate('/write');
                 }}
               ></Button>
             </GoReview>
