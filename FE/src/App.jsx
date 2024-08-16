@@ -3,6 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme.js';
 
 import { Home, Login, SignUp, Facility } from './pages';
+import TermOfUse from './pages/TermOfUse.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+import CancelAccount from './pages/CancelAccount.jsx';
 
 function App() {
   return (
@@ -11,8 +14,11 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/termofuse" element={<TermOfUse />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+            <Route path="/cancelaccount" element={<CancelAccount />} />
             <Route path="/fac/:facId" element={<Facility />} />
           </Routes>
         </BrowserRouter>

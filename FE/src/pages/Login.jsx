@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -7,9 +7,11 @@ import {
 } from '../components/Login/Container';
 import { Button, TextButton } from '../components/Login/Button';
 import { Input } from '../components/Login/Input';
+import { Footer } from '../components/common/Footer';
 
 function Login() {
   const navigate = useNavigate();
+
   const [userEmail, setUserEmail] = useState('');
   const [userPW, setUserPW] = useState('');
   const [loginCheck, setLoginCheck] = useState(false);
@@ -70,6 +72,7 @@ function Login() {
         </form>
       </StyledContent>
       <TextButton>아직 회원이 아니신가요? </TextButton>
+      <Footer />
     </Container>
   );
 }
