@@ -7,6 +7,7 @@ import {
 } from '../components/Login/Container';
 import { Button, TextButton } from '../components/Login/Button';
 import { Input } from '../components/Login/Input';
+import { Footer } from '../components/common/Footer';
 
 function Login() {
   const navigate = useNavigate();
@@ -71,6 +72,7 @@ function Login() {
         </form>
       </StyledContent>
       <TextButton>아직 회원이 아니신가요? </TextButton>
+      <Footer />
     </Container>
   );
 }
