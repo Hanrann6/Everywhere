@@ -4,7 +4,7 @@ import * as S from '../styles/home';
 import { Category, NavBar } from '../components';
 
 const Home = () => {
-  const MENU_NAMES = [
+  const MENU_NAMES1 = [
     '전체',
     'ECC',
     '중앙도서관',
@@ -17,6 +17,21 @@ const Home = () => {
     '포스코관',
   ];
 
+  const MENU_NAMES2 = [
+    '스터디',
+    '콘센트',
+    '타이핑',
+    '큰 소리로 대화',
+    '소근소근 대화',
+    '팀플',
+  ];
+
+  const MENU_NAMES3 = ['휴식', '누울 수 있는', '취식', '편의시설', '식음료점'];
+
+  const MENU_NAMES4 = ['예약', '공간 예약', '좌석 발급'];
+
+  const MENU_NAMES5 = ['기타', '24시간', 'PC', '프린터기'];
+
   return (
     <S.Root>
       <NavBar />
@@ -28,8 +43,12 @@ const Home = () => {
               <S.CategoryUlLi>
                 <S.Horizontal>
                   <S.HorizontalUl>
-                    {MENU_NAMES.map((menu, index) => (
-                      <Category key={menu} name={menu} color={index === 0 && '#000'} />
+                    {MENU_NAMES1.map((menu, index) => (
+                      <Category
+                        key={menu}
+                        name={menu}
+                        color={index === 0 && '#000'}
+                      />
                     ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
@@ -37,86 +56,52 @@ const Home = () => {
               <S.CategoryUlLi>
                 <S.Horizontal>
                   <S.HorizontalUl>
-                    <S.CategoryUlLi>
-                      <div>
-                        <S.Category>스터디</S.Category>
-                      </div>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>콘센트</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>타이핑</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>큰 소리로 대화</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>소근소근 대화</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>팀플</S.Category>
-                    </S.CategoryUlLi>
+                    {MENU_NAMES2.map((menu, index) => (
+                      <Category
+                        key={menu}
+                        name={menu}
+                        color={index === 0 && '#000'}
+                      />
+                    ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
               </S.CategoryUlLi>
               <S.CategoryUlLi>
                 <S.Horizontal>
                   <S.HorizontalUl>
-                    <S.CategoryUlLi>
-                      <div className="lititle">
-                        <S.Category>휴식</S.Category>
-                      </div>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>누울 수 있는</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>취식</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>편의시설</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>식음료점</S.Category>
-                    </S.CategoryUlLi>
+                    {MENU_NAMES3.map((menu, index) => (
+                      <Category
+                        key={menu}
+                        name={menu}
+                        color={index === 0 && '#000'}
+                      />
+                    ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
               </S.CategoryUlLi>
               <S.CategoryUlLi>
                 <S.Horizontal>
                   <S.HorizontalUl>
-                    <S.CategoryUlLi>
-                      <div className="lititle">
-                        <S.Category>예약</S.Category>
-                      </div>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>공간 예약</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>좌석 발급</S.Category>
-                    </S.CategoryUlLi>
+                    {MENU_NAMES4.map((menu, index) => (
+                      <Category
+                        key={menu}
+                        name={menu}
+                        color={index === 0 && '#000'}
+                      />
+                    ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
               </S.CategoryUlLi>
               <S.CategoryUlLi>
                 <S.Horizontal>
                   <S.HorizontalUl>
-                    <S.CategoryUlLi>
-                      <div>
-                        <S.Category>기타</S.Category>
-                      </div>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>24시간</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>PC</S.Category>
-                    </S.CategoryUlLi>
-                    <S.CategoryUlLi>
-                      <S.Category>프린터기</S.Category>
-                    </S.CategoryUlLi>
+                    {MENU_NAMES5.map((menu, index) => (
+                      <Category
+                        key={menu}
+                        name={menu}
+                        color={index === 0 && '#000'}
+                      />
+                    ))}
                   </S.HorizontalUl>
                 </S.Horizontal>
               </S.CategoryUlLi>
