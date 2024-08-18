@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Checkbox } from '../components/SignUp/Checkbox';
+import { Input } from '../components/Login/Input';
 import { Button } from '../components/Login/Button';
+import { TextButton } from '../components/Login/Button';
+import {
+  Container,
+  StyledHeader,
+  StyledContent,
+  AlignToCenter,
+} from '../components/SignUp/Container';
+
+//TODO: 체크박스 테두리 만들기;
 
 function SignUp() {
+  const inputStyle = {
+    width: '562px',
+    margin: '0px 0px 40px 0px',
+  };
   const navigate = useNavigate();
-
   const [userEmail, setUserEmail] = useState('');
   const [userPW, setUserPW] = useState('');
   const [confirmPW, setConfirmPW] = useState('');
@@ -24,7 +38,6 @@ function SignUp() {
     const payload = {
       email: userEmail,
       password: userPW,
-      //date:
     };
 
     try {
@@ -50,52 +63,93 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h1>회원가입</h1>
-      <form method="post" action="/user/create">
+    <Container>
+      <div>
+        <h1
+          style={{ fontSize: '27px', fontWeight: '1500', textAlign: 'center' }}
+        >
+          회원가입
+        </h1>
+        <h3 style={{ fontSize: '17px', textAlign: 'center' }}>
+          Everywhere 계정으로 다양한 학교 시설 정보를 찾을 수 있습니다.
+        </h3>
+      </div>
+
+      <StyledHeader>
         <label>
-          <h1> 이용약관 </h1>
-          <div style="overflow-y:auto; width:500px; height:150px;">
-            <h3>
-              국무회의는 정부의 권한에 속하는 중요한 정책을 심의한다. 대한민국의
-              주권은 국민에게 있고, 모든 권력은 국민으로부터 나온다. 사법권은
-              법관으로 구성된 법원에 속한다. 국회는 의장 1인과 부의장 2인을
-              선출한다. 국가는 평생교육을 진흥하여야 한다. 선거에 있어서
-              최고득표자가 2인 이상인 때에는 국회의 재적의원 과반수가국 출석한
-              공개회의에서 다수표를 얻은 자를 당선자로 한다.
-            </h3>
-          </div>
-          <input type="checkbox" value="y" required>
-            동의합니다.
-          </input>
+          <h2
+            style={{
+              fontSize: '25px',
+              fontWeight: 'bold',
+              margin: 0,
+            }}
+          >
+            약관 동의
+          </h2>
+          <Checkbox type="checkbox" value="y" required />
+          &nbsp;&nbsp;이용약관의 전문을 확인하였으며, 이에 동의합니다.
+          <TextButton
+            style={{
+              textDecorationLine: 'none',
+              color: '#00462a',
+            }}
+            onClick={() => navigate('/termofuse')}
+          >
+            전문 보기
+          </TextButton>
         </label>
-        <label>
-          <h1> 이메일 </h1>
-          <input
-            type="email"
-            name="userEmail"
-            value={userEmail}
-            onChange={handleUserEmail}
-            placeholder="이메일을 입력하세요"
-            autoFocus
-            required
-          />
-          {/*<Button onClick={duplicateCheck}> 중복 확인 </Button>*/}
-        </label>
-        <label>
-          <h2>비밀번호</h2>
-          <input
-            type="password"
-            name="userPassword"
-            value={userPW}
-            onChange={handleUserPW}
-            placeholder="영문과 숫자를 포함한 8자 이상의 비밀번호를 입력하세요"
-            required
-          />
-        </label>
-        <Button onClick={handleSignup}> 회원가입 </Button>
-      </form>
-    </div>
+      </StyledHeader>
+
+      <StyledContent>
+        <form>
+          <label>
+            <h3> 학교 이메일 계정을 입력하세요 </h3>
+            <Input
+              style={inputStyle}
+              type="email"
+              name="userEmail"
+              value={userEmail}
+              onChange={handleUserEmail}
+              placeholder
+              E-mail
+              autoFocus
+              required
+            />
+          </label>
+          <label>
+            <h3> 비밀번호를 입력하세요 </h3>
+            <Input
+              style={inputStyle}
+              type="password"
+              name="userPassword"
+              value={userPW}
+              onChange={handleUserPW}
+              placeholder="비밀번호"
+              required
+            />
+            {/*비밀번호 구성 확인 함수*/}
+          </label>
+          <label>
+            <h3> 비밀번호를 다시 입력하세요 </h3>
+            <Input
+              style={inputStyle}
+              type="password"
+              name="userPassword"
+              value={userPW}
+              onChange={handleUserPW}
+              placeholder="비밀번호"
+              required
+            />
+            {/*비밀번호 일치 확인 함수*/}
+            <AlignToCenter>
+              <Button style={{ margin: '40px auto' }} onClick={handleSignup}>
+                Everywhere 회원가입
+              </Button>
+            </AlignToCenter>
+          </label>
+        </form>
+      </StyledContent>
+    </Container>
   );
 }
 export default SignUp;
