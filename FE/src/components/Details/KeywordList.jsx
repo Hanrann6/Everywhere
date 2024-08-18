@@ -1,6 +1,7 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import * as S from './KeywordList.style';
-import data from '../../data.json';
+
+const API_URL = 'http://ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com';
 
 export const keywordText = {
   //keywordMap은 자바스크립트 객체이다.
@@ -19,9 +20,17 @@ export const keywordText = {
 };
 
 export const KeywordList = ({ facId }) => {
-  //json파일의 facility 중 facId가 props로 받은 값과 같은 객체를 뽑아 새로운 facility 배열에 저장
-  const facility = data.facility.find(fac => fac.facId === facId);
+  const [facility, setFacility] = useState(null);
 
+  useEffect(() => {
+    async function fetchFacility() {
+      const response = await fetch(`${API_URL}/fac/${facId}`);
+      const data = await response.json();
+      setFacility(data);
+    }
+
+    fetchFacility();
+  }, [facId]);
   //facility배열에서 value가 true인 'key'들을 추출해 새로운 배열 keywords에 저장
   const keywords = Object.keys(facility).filter(key => facility[key] === true);
 
