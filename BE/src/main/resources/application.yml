@@ -12,7 +12,3 @@ cloud:
       auto: false
     stack:
       auto: false
-    credentials:
-      access-key: AKIAQGYBQAXKGZUZ4KPZ
-      secret-key: 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
-
