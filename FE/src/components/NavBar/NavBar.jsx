@@ -1,4 +1,5 @@
 import * as S from './NavBar.style';
+import { Route, Link } from 'react-router-dom';
 
 export const NavBar = () => {
   return (
@@ -13,14 +14,14 @@ export const NavBar = () => {
       <S.NavMenu className="navbar_menu">
         <ul>
           <li>
-            {/* TODO: a 태그를 링크로 바꾸기 */}
-            <a href="./Home.js">홈</a>
+            
+            <Link to="./Home.js">홈</Link>
           </li>
           <li>
-            <a href="#">건물별 안내</a>
+            <Link to="#" style={{color: "#424242"}}>건물별 안내</Link>
           </li>
           <li>
-            <a href="#">공지사항</a>
+            <Link to="#">공지사항</Link>
           </li>
         </ul>
       </S.NavMenu>

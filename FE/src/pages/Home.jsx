@@ -48,6 +48,8 @@ const Home = () => {
                         key={menu}
                         name={menu}
                         color={index === 0 && '#000'}
+                        margin-right={index === 0 && 40}
+                        //TODO : Index가 0인 애들만 가운데 정렬 
                       />
                     ))}
                   </S.HorizontalUl>
