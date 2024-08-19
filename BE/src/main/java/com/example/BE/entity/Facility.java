@@ -11,9 +11,11 @@ public class Facility {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int facId;
-    private int buildId;
-    private String facName;
+    @Column(name = "fac_id")
+    private Integer fac_id;
+
+    private int build_id;
+    private String fac_name;
     private String imagepath;
     private String flour;
     private String time;

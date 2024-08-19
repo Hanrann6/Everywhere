@@ -35,6 +35,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	//implementation 'jakarta.persistence:jakarta.persistence-api:3.0.0' // 적절한 버전을 사용하세요
+
 }
 
 tasks.named('test') {

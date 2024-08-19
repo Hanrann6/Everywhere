@@ -10,7 +10,11 @@ public class BeApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(BeApplication.class, args);
+		try {
+			SpringApplication.run(BeApplication.class, args);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
