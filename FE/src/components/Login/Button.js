@@ -5,9 +5,9 @@ export const Button = styled.button`
   background-color: ${props => props.bgColor || theme.ewhaGreen};
   color: ${props => props.color || theme.white};
   border: none;
-  padding: 8px 22px;
+  margin: 8px;
   font-size: 17px;
-  width: 400px;
+  width: 408px;
   height: 60px;
   border-radius: 5px;
   transition: background-color 0.1s;
@@ -23,6 +23,7 @@ export const TextButton = styled.button`
   background-color: rgba(250, 250, 250, 0);
   border: none;
   margin: 30px;
+  text-align: center;
   font-size: 17px;
   text-decoration-line: underline;
 `;

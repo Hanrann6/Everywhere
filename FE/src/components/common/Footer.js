@@ -7,12 +7,13 @@ const StyledFooter = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
 `;
 
 const Option = styled.button`
   background-color: #ffffff;
+  background-color: rgba(250, 250, 250, 0);
   border: none;
   font-size: 15px;
 `;
