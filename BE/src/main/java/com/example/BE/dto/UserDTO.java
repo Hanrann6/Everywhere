@@ -15,5 +15,6 @@ public class UserDTO {
     private Long user_id;
 
     private String email;
-    private String password;
+    private String pwd;
+    private String user_date;
 }

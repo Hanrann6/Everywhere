@@ -1,5 +1,6 @@
 package com.example.BE.controller;
 
+import com.example.BE.dto.ReviewResponse;
 import com.example.BE.entity.Review;
 import com.example.BE.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping("/{facId}")
-    public ResponseEntity<?> getReviewsByFacilityId(@PathVariable int facId) {
-        List<Review> reviews = reviewService.getReviewsByFacilityId(facId);
+    //시설별 리뷰 조회
+    @GetMapping("/{fac_id}")
+    public ResponseEntity<?> getReviewsByFacilityId(@PathVariable("fac_id") Integer fac_id) {
+        List<Review> reviews = reviewService.getReviewsByFacilityId(fac_id);
 
         Map<String, Object> response = new HashMap<>();
         response.put("totalReview", reviews.size());
@@ -28,16 +30,22 @@ public class ReviewController {
             Map<String, Object> reviewMap = new HashMap<>();
             reviewMap.put("id", i + 1);
             reviewMap.put("review", Map.of(
-                    "reviewId", reviews.get(i).getReviewId(),
+                    "review_id", reviews.get(i).getReview_id(),
                     "content", reviews.get(i).getReview(),
-                    "goodYN", reviews.get(i).isGood_YN(),
-                    "date", reviews.get(i).getDate(),
-                    "userId", reviews.get(i).getUser() != null ? reviews.get(i).getUser().getUser_id() : null
+                    "good_YN", reviews.get(i).isGood_YN(),
+                    "date", reviews.get(i).getDate()
             ));
             response.put("review" + (i + 1), reviewMap);
         }
 
         return ResponseEntity.ok(response);
+    }
+
+    //리뷰 작성 api
+    @PostMapping("/{fac_id}")
+    public ResponseEntity<ReviewResponse> uploadReview(@PathVariable int fac_id, @RequestBody Review review) {
+        ReviewResponse response = reviewService.uploadReview(fac_id, review);
+        return ResponseEntity.status(response.getStatus()).body(response);
     }
 }
 
