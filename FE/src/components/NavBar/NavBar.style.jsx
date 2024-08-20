@@ -50,7 +50,7 @@ export const NavMenu = styled.nav`
   li {
     padding: 10px 50px;
     font-weight: bold;
-    
+
     a {
       text-decoration: none;
       color: ${({ theme }) => theme.black};
