@@ -16,96 +16,64 @@ import '../styles/SignUp.css';
 
 function SignUp() {
   const navigate = useNavigate();
-
   const api =
     'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/create';
 
-  let elInputPassword = document.querySelector('#password');
-  let elInputPasswordRetype = document.querySelector('#password-retype');
-  let elSuccessMessage = document.querySelector('.success-message'); // div.success-message.hide //1. 성공 메시지
-  let elFailureMessage = document.querySelector('.failure-message'); //2. 글자수 위반
-  let elFailureMessageTwo = document.querySelector('.failure-message2'); //3. 구성 문자 위반
-  let elMismatchMessage = document.querySelector('.mismatch-message'); // div.mismatch-message.hide // 4. 비밀번호 불일치
-
   const [userEmail, setUserEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRetype, setPasswordRetype] = useState('');
+
+  // 유효성 검사
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [isPasswordLengthValid, setIsPasswordLengthValid] = useState(true);
+  const [isPasswordCharacterValid, setIsPasswordCharacterValid] =
+    useState(true);
+  const [isPasswordMatch, setIsPasswordMatch] = useState(true);
+
   const handleUserEmail = event => {
     setUserEmail(event.target.value);
   };
 
-  const [password, setPassword] = useState('');
-  const [passwordRetype, setPasswordRetype] = useState('');
   const handlePassword = event => {
-    setPassword(event.target.value);
+    const value = event.target.value;
+    setPassword(value);
+
+    // 길이: 8 ~ 20
+    const lengthValid = value.length >= 8 && value.length <= 20;
+    setIsPasswordLengthValid(lengthValid);
+
+    // 구성: 영문, 숫자
+    const characterValid = /^[A-Za-z0-9]+$/.test(value);
+    setIsPasswordCharacterValid(characterValid);
+
+    // 조건 만족
+    setIsPasswordValid(lengthValid && characterValid);
+
+    // 비밀번호 재확인
+    setIsPasswordMatch(value === passwordRetype);
   };
+
   const handlePasswordRetype = event => {
-    setPasswordRetype(event.target.value);
+    const value = event.target.value;
+    setPasswordRetype(value);
+    setIsPasswordMatch(password === value);
   };
+
+  function goToHome() {
+    navigate('/home');
+  }
+
   const handleSignup = async event => {
     event.preventDefault();
+
+    if (!isPasswordValid || !isPasswordMatch) {
+      return;
+    }
+
     const payload = {
       email: userEmail,
       password: password,
     };
-
-    function passwordLength(value) {
-      return value.length >= 8 && value.length <= 20;
-      //8~20d일 경우 true 반환
-    }
-    function onlyNumberAndEnglish(str) {
-      return /^[A-Za-z0-9][A-Za-z0-9]*$/.test(str);
-      //영어 또는 숫자만 가능
-    }
-    function isMatch(password1, password2) {
-      return password1 === password2;
-      //비밀번호 확인
-    }
-    elInputPassword.handlePassword = function () {
-      // 값을 입력한 경우
-      if (elInputPassword.value.length !== 0) {
-        // 영어 또는 숫자
-        if (onlyNumberAndEnglish(elInputPassword) === false) {
-          elSuccessMessage.classList.add('hide');
-          elFailureMessage.classList.add('hide');
-          elFailureMessageTwo.classList.remove('hide'); // 영어 또는 숫자만 가능합니다
-          elMismatchMessage.classList.add('hide');
-        }
-        // 글자 수
-        else if (passwordLength(elInputPassword.value) === false) {
-          elSuccessMessage.classList.add('hide');
-          elFailureMessage.classList.remove('hide'); // 8-20 글자 사이로 입력하세요
-          elFailureMessageTwo.classList.add('hide');
-          elMismatchMessage.classList.add('hide');
-        }
-        // 조건을 모두 만족
-        else if (
-          passwordLength(elInputPassword.value) &&
-          onlyNumberAndEnglish(elInputPassword.value)
-        ) {
-          elSuccessMessage.classList.remove('hide'); // 사용할 수 있는 아이디입니다
-          elFailureMessage.classList.add('hide');
-          elFailureMessageTwo.classList.add('hide');
-          elMismatchMessage.classList.add('hide');
-        }
-      }
-      // 값을 입력하지 않은 경우 (지웠을 때)
-      // 모든 메시지를 가린다.
-      else {
-        elSuccessMessage.classList.add('hide');
-        elFailureMessage.classList.add('hide');
-        elFailureMessageTwo.classList.add('hide');
-        elMismatchMessage.classList.add('hide');
-      }
-    };
-
-    if (elInputPasswordRetype.value.length !== 0) {
-      if (isMatch(elInputPassword.value, elInputPasswordRetype.value)) {
-        elMismatchMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-      } else {
-        elMismatchMessage.classList.remove('hide'); // 실패 메시지가 보여야 함
-      }
-    } else {
-      elMismatchMessage.classList.add('hide'); // 실패 메시지가 가려져야 함
-    }
 
     try {
       const response = await fetch(api, {
@@ -119,10 +87,10 @@ function SignUp() {
       const result = await response.json();
 
       if (response.status === 200) {
-        console.log(`회원가입 성공: ${result.email}`);
-        navigate('/Login');
+        alert(`회원가입 성공: ${result.email}`);
+        goToHome();
       } else if (response.status === 400) {
-        alert(`회원가입 실패: ${result.email}`);
+        alert(`회원가입 실패: ${result.message}`);
       }
     } catch (error) {
       console.error('오류 발생:', error);
@@ -172,13 +140,11 @@ function SignUp() {
           <label>
             <h3> 학교 이메일 계정을 입력하세요 </h3>
             <Input
-              //style={{ inputStyle }}
               type="email"
               name="userEmail"
               value={userEmail}
               onChange={handleUserEmail}
-              placeholder
-              E-mail
+              placeholder="E-mail"
               autoFocus
               required
             />
@@ -186,7 +152,6 @@ function SignUp() {
           <label>
             <h3> 비밀번호를 입력하세요 </h3>
             <Input
-              //style={{ inputStyle }}
               type="password"
               name="userPassword"
               value={password}
@@ -194,35 +159,45 @@ function SignUp() {
               placeholder="비밀번호"
               required
             />
-            <div className="success-message hide">
-              사용할 수 있는 비밀번호입니다
-            </div>
-            <div className="failure-message hide"> 8~20 글자이어야 합니다</div>
-            <div className="failure-message2 hide">
-              영어 또는 숫자만 가능합니다
-            </div>
+            {!isPasswordLengthValid && (
+              <div className="failure-message">8~20 글자이어야 합니다</div>
+            )}
+            {!isPasswordCharacterValid && (
+              <div className="failure-message2">
+                영어 또는 숫자만 가능합니다
+              </div>
+            )}
+            {isPasswordValid && (
+              <div className="success-message">
+                사용할 수 있는 비밀번호입니다
+              </div>
+            )}
           </label>
           <label>
             <h3> 비밀번호를 다시 입력하세요 </h3>
             <Input
-              //style={{ inputStyle }}
               type="password"
-              id="passwordRetypee"
+              id="passwordRetype"
               name="passwordRetype"
               value={passwordRetype}
               onChange={handlePasswordRetype}
               placeholder="비밀번호"
               required
             />
-            <div className="mismatch-message hide">
-              비밀번호가 일치하지 않습니다
-            </div>
-            <AlignToCenter>
-              <Button style={{ margin: '40px auto' }} onClick={handleSignup}>
-                Everywhere 회원가입
-              </Button>
-            </AlignToCenter>
+            {!isPasswordMatch && (
+              <div className="mismatch-message">
+                비밀번호가 일치하지 않습니다
+              </div>
+            )}
           </label>
+          <AlignToCenter>
+            <Button
+              style={{ margin: '40px auto' }}
+              onClick={() => handleSignup}
+            >
+              Everywhere 회원가입
+            </Button>
+          </AlignToCenter>
         </form>
       </StyledContent>
     </Container>

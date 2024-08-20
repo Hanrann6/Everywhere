@@ -85,3 +85,9 @@ export const LoginButton = styled.button`
   color: #ffffff;
   border-color: ${({ theme }) => theme.ewhaGreen};
 `;
+
+export const LogoutButton = styled.button`
+  background-color: ${({ theme }) => theme.ewhaGreen};
+  color: #ffffff;
+  border-color: ${({ theme }) => theme.ewhaGreen};
+`;
