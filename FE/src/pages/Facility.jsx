@@ -1,64 +1,16 @@
-import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import styled from 'styled-components';
-import FacilityImage from '../components/FacilityImage';
-import FacilityDetails from '../components/FacilityDetails';
-import Button from '../components/Button';
-import { NavBar } from '../components/NavBar/NavBar';
-import KeywordList from '../components/KeywordList';
+import {
+  Button,
+  FacilityDetails,
+  FacilityImage,
+  KeywordList,
+} from '../components/Details';
+import { NavBar } from '../components';
+import * as S from '../styles/facility';
 import data from '../data.json';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
-
-const Wrapper = styled.div`
-  width: 100%;
-`;
-
-const Header = styled.div`
-  margin: 0;
-  padding: 40px 20px 0 40px;
-  width: 100%;
-  height: 70px;
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-`;
-
-const ContentBox = styled.div`
-  min-width: 1500px;
-  height: 450px;
-  background-color: rgb(134, 179, 130, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
-
-const TextBox = styled.div`
-  margin: 20px;
-  padding: 5px;
-  width: 475px;
-  height: 340px;
-  background-color: rgb(37, 105, 31, 0.12);
-  position: relative;
-`;
-
-const GoBack = styled.button`
-  margin: 5px;
-  padding: 5px;
-  background: none;
-  border: none;
-`;
-
-const GoReview = styled.div`
-  position: absolute;
-  bottom: 20px;
-  left: 30px;
-  right: 30px;
-  display: flex;
-  justify-content: space-between;
-`;
 
 function Facility() {
   const navigate = useNavigate();
@@ -71,29 +23,34 @@ function Facility() {
   return (
     console.log({ details }),
     (
-      <Wrapper>
+      <S.Wrapper>
         <NavBar />
 
-        <Header>
-          <GoBack onClick={() => navigate(-1)}>
+        <S.Header>
+          <S.GoBack onClick={() => navigate(-1)}>
             <FontAwesomeIcon icon={faAngleLeft} size="2x" />
-          </GoBack>
+          </S.GoBack>
           <span>시설 상세 정보</span>
-        </Header>
-        <ContentBox>
-          <FacilityImage imagePath={details.imagePath}></FacilityImage>
+        </S.Header>
 
-          <TextBox>
+        <S.ContentBox>
+          <FacilityImage
+            width="450px"
+            height="337px"
+            imagePath={details.imagePath}
+          />
+
+          <S.TextBox>
             <FacilityDetails
               location={details.flour}
               name={details.facName}
               time={details.time}
               content={details.content}
-            ></FacilityDetails>
+            />
 
-            <KeywordList facId={Number(facId)}></KeywordList>
+            <KeywordList facId={Number(facId)} />
 
-            <GoReview>
+            <S.GoReview>
               <Button
                 title="리뷰 확인하기"
                 onClick={() => {
@@ -105,11 +62,11 @@ function Facility() {
                 onClick={() => {
                   navigate('/write');
                 }}
-              ></Button>
-            </GoReview>
-          </TextBox>
-        </ContentBox>
-      </Wrapper>
+              />
+            </S.GoReview>
+          </S.TextBox>
+        </S.ContentBox>
+      </S.Wrapper>
     )
   );
 }
