@@ -10,38 +10,73 @@ import {
   StyledContent,
   AlignToCenter,
 } from '../components/SignUp/Container';
+import '../styles/SignUp.css';
 
 //TODO: 체크박스 테두리 만들기;
 
 function SignUp() {
-  const inputStyle = {
-    width: '562px',
-    margin: '0px 0px 40px 0px',
-  };
   const navigate = useNavigate();
+  const api =
+    'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/create';
+
   const [userEmail, setUserEmail] = useState('');
-  const [userPW, setUserPW] = useState('');
-  const [confirmPW, setConfirmPW] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordRetype, setPasswordRetype] = useState('');
+
+  // 유효성 검사
+  const [isPasswordValid, setIsPasswordValid] = useState(false);
+  const [isPasswordLengthValid, setIsPasswordLengthValid] = useState(true);
+  const [isPasswordCharacterValid, setIsPasswordCharacterValid] =
+    useState(true);
+  const [isPasswordMatch, setIsPasswordMatch] = useState(true);
 
   const handleUserEmail = event => {
     setUserEmail(event.target.value);
   };
-  const handleUserPW = event => {
-    setUserPW(event.target.value);
-    if (userPW !== confirmPW) {
-      //return <TextS content="비밀번호가 일치하지 않습니다." />;
-    }
+
+  const handlePassword = event => {
+    const value = event.target.value;
+    setPassword(value);
+
+    // 길이: 8 ~ 20
+    const lengthValid = value.length >= 8 && value.length <= 20;
+    setIsPasswordLengthValid(lengthValid);
+
+    // 구성: 영문, 숫자
+    const characterValid = /^[A-Za-z0-9]+$/.test(value);
+    setIsPasswordCharacterValid(characterValid);
+
+    // 조건 만족
+    setIsPasswordValid(lengthValid && characterValid);
+
+    // 비밀번호 재확인
+    setIsPasswordMatch(value === passwordRetype);
   };
+
+  const handlePasswordRetype = event => {
+    const value = event.target.value;
+    setPasswordRetype(value);
+    setIsPasswordMatch(password === value);
+  };
+
+  function goToHome() {
+    navigate('/');
+  }
 
   const handleSignup = async event => {
     event.preventDefault();
+
+    if (!isPasswordValid || !isPasswordMatch) {
+      return;
+    }
+
     const payload = {
       email: userEmail,
-      password: userPW,
+      password: password,
     };
 
     try {
-      const response = await fetch('/user/create', {
+      const response = await fetch(api, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,10 +87,10 @@ function SignUp() {
       const result = await response.json();
 
       if (response.status === 200) {
-        console.log(`회원가입 성공: ${result.email}`);
-        navigate('/Login');
+        alert(`회원가입 성공: ${result.email}`);
+        goToHome();
       } else if (response.status === 400) {
-        alert(`회원가입 실패: ${result.email}`);
+        alert(`회원가입 실패: ${result.message}`);
       }
     } catch (error) {
       console.error('오류 발생:', error);
@@ -66,7 +101,11 @@ function SignUp() {
     <Container>
       <div>
         <h1
-          style={{ fontSize: '27px', fontWeight: '1500', textAlign: 'center' }}
+          style={{
+            fontSize: '27px',
+            fontWeight: '1500',
+            textAlign: 'center',
+          }}
         >
           회원가입
         </h1>
@@ -105,13 +144,11 @@ function SignUp() {
           <label>
             <h3> 학교 이메일 계정을 입력하세요 </h3>
             <Input
-              style={inputStyle}
               type="email"
               name="userEmail"
               value={userEmail}
               onChange={handleUserEmail}
-              placeholder
-              E-mail
+              placeholder="E-mail"
               autoFocus
               required
             />
@@ -119,34 +156,54 @@ function SignUp() {
           <label>
             <h3> 비밀번호를 입력하세요 </h3>
             <Input
-              style={inputStyle}
               type="password"
               name="userPassword"
-              value={userPW}
-              onChange={handleUserPW}
+              value={password}
+              onChange={handlePassword}
               placeholder="비밀번호"
               required
             />
-            {/*비밀번호 구성 확인 함수*/}
+            {!isPasswordLengthValid && (
+              <div className="failure-message" style={{ color: 'red' }}>
+                8~20 글자이어야 합니다
+              </div>
+            )}
+            {!isPasswordCharacterValid && (
+              <div className="failure-message2" style={{ color: 'red' }}>
+                영어 또는 숫자만 가능합니다
+              </div>
+            )}
+            {isPasswordValid && (
+              <div className="success-message" style={{ color: 'green' }}>
+                사용할 수 있는 비밀번호입니다
+              </div>
+            )}
           </label>
           <label>
             <h3> 비밀번호를 다시 입력하세요 </h3>
             <Input
-              style={inputStyle}
               type="password"
-              name="userPassword"
-              value={userPW}
-              onChange={handleUserPW}
+              id="passwordRetype"
+              name="passwordRetype"
+              value={passwordRetype}
+              onChange={handlePasswordRetype}
               placeholder="비밀번호"
               required
             />
-            {/*비밀번호 일치 확인 함수*/}
-            <AlignToCenter>
-              <Button style={{ margin: '40px auto' }} onClick={handleSignup}>
-                Everywhere 회원가입
-              </Button>
-            </AlignToCenter>
+            {!isPasswordMatch && (
+              <div className="mismatch-message" style={{ color: 'red' }}>
+                비밀번호가 일치하지 않습니다
+              </div>
+            )}
           </label>
+          <AlignToCenter>
+            <Button
+              style={{ margin: '40px auto' }}
+              onClick={() => handleSignup}
+            >
+              Everywhere 회원가입
+            </Button>
+          </AlignToCenter>
         </form>
       </StyledContent>
     </Container>

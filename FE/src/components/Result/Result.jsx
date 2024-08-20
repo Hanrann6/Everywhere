@@ -1,6 +1,5 @@
 import * as S from './Result.styles';
 import { ResultBox } from './ResultBox';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
