@@ -21,12 +21,12 @@ public class UserController {
     //회원가입 - test 성공
     @PostMapping("user/create")
     public User registerUser(@RequestBody UserDTO userDTO) {
-        return userService.registerUser(userDTO.getEmail(), userDTO.getPassword());
+        return userService.registerUser(userDTO.getEmail(), userDTO.getPwd());
     }
     //로그인 - test 성공
     @PostMapping("user/login")
     public ResponseEntity<String> loginUser(@RequestBody UserDTO userDTO) {
-        Optional<User> user = userService.loginUser(userDTO.getEmail(), userDTO.getPassword());
+        Optional<User> user = userService.loginUser(userDTO.getEmail(), userDTO.getPwd());
 
         if (user.isPresent()) {
             return ResponseEntity.ok("Login successful");
