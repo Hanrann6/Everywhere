@@ -131,8 +131,11 @@ function SignUp() {
             style={{
               textDecorationLine: 'none',
               color: '#00462a',
+              margin: '20px 30px 20px 10px',
             }}
-            onClick={() => navigate('/termofuse')}
+            onClick={() =>
+              window.open('/termofuse', 'popup', 'width=770, height=500')
+            }
           >
             전문 보기
           </TextButton>

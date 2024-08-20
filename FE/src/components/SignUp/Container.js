@@ -13,10 +13,11 @@ export const Container = styled.div`
 
 export const StyledHeader = styled.div`
   width: 562px;
-  height: 88px;
+  height: 70px;
   margin: 60px 0px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 export const StyledContent = styled.body`
@@ -25,6 +26,7 @@ export const StyledContent = styled.body`
   margin: 0%;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 `;
 
 export const AlignToCenter = styled.div`
