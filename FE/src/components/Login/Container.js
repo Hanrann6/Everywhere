@@ -28,5 +28,5 @@ export const StyledContent = styled.body`
   height: 149px;
   flex-direction: column;
   justify-content: center;
-  gap: px;
+  align-items: center;
 `;

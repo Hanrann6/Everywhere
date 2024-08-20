@@ -1,2 +1,2 @@
-export { Result } from './Result';
-export { ResultBox } from './ResultBox';
+export { Result } from './Result.jsx';
+export { ResultBox } from './ResultBox.jsx';
