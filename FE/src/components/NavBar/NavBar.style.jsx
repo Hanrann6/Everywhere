@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavBarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ theme }) => theme.white};
   padding: 12px;
 `;
 
@@ -13,7 +14,7 @@ export const Logo = styled.div`
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.textColor};
+    color: ${({ theme }) => theme.black};
   }
 `;
 
@@ -24,9 +25,18 @@ export const LogoTextE = styled.span`
 `;
 
 export const LogoTextEverywhere = styled.span`
-  color: ${({ theme }) => theme.textColor};
+  color: ${({ theme }) => theme.black};
   font-weight: bold;
   font-size: 1.3em;
+`;
+
+const StyledLink = styled(Link)`
+  color: #424242;
+
+  &:hover {
+    color: ${({ theme }) => theme.ewhaGreen};
+    font-weight: 900;
+  }
 `;
 
 export const NavMenu = styled.nav`
@@ -38,12 +48,12 @@ export const NavMenu = styled.nav`
   }
 
   li {
-    padding: 10px 30px;
+    padding: 10px 50px;
     font-weight: bold;
-
+    
     a {
       text-decoration: none;
-      color: ${({ theme }) => theme.textColor};
+      color: ${({ theme }) => theme.black};
 
       &:hover {
         color: ${({ theme }) => theme.ewhaGreen};

@@ -1,6 +1,6 @@
 const theme = {
   ewhaGreen: '#00462a',
-  subGreen: '25691F',
+  subGreen: '#25691F',
   black: '#000000',
   gray: '#979797',
   white: '#ffffff',

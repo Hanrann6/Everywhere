@@ -8,13 +8,13 @@ export const Category = styled.button`
   background-color: #979797;
   color: #ffffff;
   border: none;
-  border-radius: 12px;
-  padding: 7px 15px;
+  border-radius: 20px;
+  padding: 10px 30px;
 `;
 
 export const H2Text = styled.h2`
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 50%;
   color: #000000;
   transform: translateX(-50%);
@@ -22,8 +22,7 @@ export const H2Text = styled.h2`
 
 export const Horizontal = styled.div`
   display: flex;
-  justify-content: center;
-  gap: 15px;
+  justify-content: left;
 `;
 
 export const HorizontalUl = styled.ul`
@@ -31,8 +30,7 @@ export const HorizontalUl = styled.ul`
   display: flex;
   margin: 0;
   padding-left: 0;
-  align-items: center;
-  padding-inline-start: 20%;
+  padding-inline-start: 17%;
 `;
 
 export const CategoryUlLi = styled.li`

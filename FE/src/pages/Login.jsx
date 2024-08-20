@@ -65,6 +65,7 @@ function Login() {
             value={userEmail}
             onChange={handleUserEmail}
             placeholder="E-mail"
+            placeholder="E-mail"
             autoFocus
             required
           />

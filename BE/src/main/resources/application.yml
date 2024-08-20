@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+cloud:
+  aws:
+    s3:
+      bucket: everywhere-s3-bucket.bucket
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+    credentials:
+      access-key: AKIAQGYBQAXKGZUZ4KPZ
+      secret-key: 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
+logging:
+  level:
+    root: DEBUG
