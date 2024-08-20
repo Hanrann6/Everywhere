@@ -2,11 +2,18 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const NavBarContainer = styled.div`
+  top: 0px;
+  right: 0px;
+  left: 0px;
   display: flex;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.white};
-  padding: 12px;
+  background-color: #ffffff;
+  padding: 10px;
+  margin-top: 0px;
+  margin-right: 30px;
 `;
 
 export const Logo = styled.div`
@@ -94,6 +101,8 @@ export const LoginButton = styled.button`
   background-color: ${({ theme }) => theme.ewhaGreen};
   color: #ffffff;
   border-color: ${({ theme }) => theme.ewhaGreen};
+  width: 90px;
+  margin-right: 10px;
 `;
 
 export const LogoutButton = styled.button`

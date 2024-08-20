@@ -4,6 +4,11 @@ export const Root = styled.div`
   /* .class {} */
 `;
 
+export const categoryUl = styled.ul`
+  margin-top:160px
+  text-align: center;
+`;
+
 export const Category = styled.button`
   background-color: #979797;
   color: #ffffff;
@@ -13,11 +18,13 @@ export const Category = styled.button`
 `;
 
 export const H2Text = styled.h2`
-  position: absolute;
-  top: 10%;
-  left: 50%;
+  position: stickey;
+  margin-top: 110px;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%; 
+  top: 30px;
   color: #000000;
-  transform: translateX(-50%);
 `;
 
 export const Horizontal = styled.div`
@@ -45,24 +52,19 @@ export const SearchBtn = styled.button`
   color: #ffffff;
   border: none;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 25px 50px;
   font-size: 16px;
-  cursor: pointer;
-  position: absolute;
+  position: relative;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
 `;
 
-export const ResultIcon = styled.img`
-  padding-top: 20px;
-  padding-bottom: 20px;
-  left: 50%;
-`;
 
 export const GreenBG = styled.div`
   background-color: #e5ede4;
   color: white;
   width: 50px;
-  height: 600px;
+  height: 60px;
   padding: 50px;
 `;
