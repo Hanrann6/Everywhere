@@ -8,7 +8,6 @@ import {
 import { NavBar } from '../components';
 import * as S from '../styles/facility';
 import data from '../data.json';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
