@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Checkbox } from '../components/SignUp/Checkbox';
 import { Input } from '../components/Login/Input';
-import { Checkbox } from '../components/SignUp/Checkbox';
-import { Input } from '../components/Login/Input';
 import { Button } from '../components/Login/Button';
 import { TextButton } from '../components/Login/Button';
 import {
@@ -17,10 +15,6 @@ import '../styles/SignUp.css';
 //TODO: 체크박스 테두리 만들기;
 
 function SignUp() {
-  const inputStyle = {
-    width: '562px',
-    margin: '0px 0px 40px 0px',
-  };
   const navigate = useNavigate();
   const api =
     'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/create';
@@ -101,118 +95,118 @@ function SignUp() {
     } catch (error) {
       console.error('오류 발생:', error);
     }
+  };
 
-    return (
-      <Container>
-        <div>
-          <h1
+  return (
+    <Container>
+      <div>
+        <h1
+          style={{
+            fontSize: '27px',
+            fontWeight: '1500',
+            textAlign: 'center',
+          }}
+        >
+          회원가입
+        </h1>
+        <h3 style={{ fontSize: '17px', textAlign: 'center' }}>
+          Everywhere 계정으로 다양한 학교 시설 정보를 찾을 수 있습니다.
+        </h3>
+      </div>
+
+      <StyledHeader>
+        <label>
+          <h2
             style={{
-              fontSize: '27px',
-              fontWeight: '1500',
-              textAlign: 'center',
+              fontSize: '25px',
+              fontWeight: 'bold',
+              margin: 0,
             }}
           >
-            회원가입
-          </h1>
-          <h3 style={{ fontSize: '17px', textAlign: 'center' }}>
-            Everywhere 계정으로 다양한 학교 시설 정보를 찾을 수 있습니다.
-          </h3>
-        </div>
+            약관 동의
+          </h2>
+          <Checkbox type="checkbox" value="y" required />
+          &nbsp;&nbsp;이용약관의 전문을 확인하였으며, 이에 동의합니다.
+          <TextButton
+            style={{
+              textDecorationLine: 'none',
+              color: '#00462a',
+            }}
+            onClick={() => navigate('/termofuse')}
+          >
+            전문 보기
+          </TextButton>
+        </label>
+      </StyledHeader>
 
-        <StyledHeader>
+      <StyledContent>
+        <form>
           <label>
-            <h2
-              style={{
-                fontSize: '25px',
-                fontWeight: 'bold',
-                margin: 0,
-              }}
-            >
-              약관 동의
-            </h2>
-            <Checkbox type="checkbox" value="y" required />
-            &nbsp;&nbsp;이용약관의 전문을 확인하였으며, 이에 동의합니다.
-            <TextButton
-              style={{
-                textDecorationLine: 'none',
-                color: '#00462a',
-              }}
-              onClick={() => navigate('/termofuse')}
-            >
-              전문 보기
-            </TextButton>
+            <h3> 학교 이메일 계정을 입력하세요 </h3>
+            <Input
+              type="email"
+              name="userEmail"
+              value={userEmail}
+              onChange={handleUserEmail}
+              placeholder="E-mail"
+              autoFocus
+              required
+            />
           </label>
-        </StyledHeader>
-
-        <StyledContent>
-          <form>
-            <label>
-              <h3> 학교 이메일 계정을 입력하세요 </h3>
-              <Input
-                type="email"
-                name="userEmail"
-                value={userEmail}
-                onChange={handleUserEmail}
-                placeholder="E-mail"
-                autoFocus
-                required
-              />
-            </label>
-            <label>
-              <h3> 비밀번호를 입력하세요 </h3>
-              <Input
-                type="password"
-                name="userPassword"
-                value={password}
-                onChange={handlePassword}
-                placeholder="비밀번호"
-                required
-              />
-              {!isPasswordLengthValid && (
-                <div className="failure-message" style={{ color: 'red' }}>
-                  8~20 글자이어야 합니다
-                </div>
-              )}
-              {!isPasswordCharacterValid && (
-                <div className="failure-message2" style={{ color: 'red' }}>
-                  영어 또는 숫자만 가능합니다
-                </div>
-              )}
-              {isPasswordValid && (
-                <div className="success-message" style={{ color: 'green' }}>
-                  사용할 수 있는 비밀번호입니다
-                </div>
-              )}
-            </label>
-            <label>
-              <h3> 비밀번호를 다시 입력하세요 </h3>
-              <Input
-                type="password"
-                id="passwordRetype"
-                name="passwordRetype"
-                value={passwordRetype}
-                onChange={handlePasswordRetype}
-                placeholder="비밀번호"
-                required
-              />
-              {!isPasswordMatch && (
-                <div className="mismatch-message" style={{ color: 'red' }}>
-                  비밀번호가 일치하지 않습니다
-                </div>
-              )}
-            </label>
-            <AlignToCenter>
-              <Button
-                style={{ margin: '40px auto' }}
-                onClick={() => handleSignup}
-              >
-                Everywhere 회원가입
-              </Button>
-            </AlignToCenter>
-          </form>
-        </StyledContent>
-      </Container>
-    );
-  };
+          <label>
+            <h3> 비밀번호를 입력하세요 </h3>
+            <Input
+              type="password"
+              name="userPassword"
+              value={password}
+              onChange={handlePassword}
+              placeholder="비밀번호"
+              required
+            />
+            {!isPasswordLengthValid && (
+              <div className="failure-message" style={{ color: 'red' }}>
+                8~20 글자이어야 합니다
+              </div>
+            )}
+            {!isPasswordCharacterValid && (
+              <div className="failure-message2" style={{ color: 'red' }}>
+                영어 또는 숫자만 가능합니다
+              </div>
+            )}
+            {isPasswordValid && (
+              <div className="success-message" style={{ color: 'green' }}>
+                사용할 수 있는 비밀번호입니다
+              </div>
+            )}
+          </label>
+          <label>
+            <h3> 비밀번호를 다시 입력하세요 </h3>
+            <Input
+              type="password"
+              id="passwordRetype"
+              name="passwordRetype"
+              value={passwordRetype}
+              onChange={handlePasswordRetype}
+              placeholder="비밀번호"
+              required
+            />
+            {!isPasswordMatch && (
+              <div className="mismatch-message" style={{ color: 'red' }}>
+                비밀번호가 일치하지 않습니다
+              </div>
+            )}
+          </label>
+          <AlignToCenter>
+            <Button
+              style={{ margin: '40px auto' }}
+              onClick={() => handleSignup}
+            >
+              Everywhere 회원가입
+            </Button>
+          </AlignToCenter>
+        </form>
+      </StyledContent>
+    </Container>
+  );
 }
 export default SignUp;
