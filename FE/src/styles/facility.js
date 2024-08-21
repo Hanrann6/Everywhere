@@ -6,12 +6,14 @@ export const Wrapper = styled.div`
 
 export const Header = styled.div`
   margin: 0;
-  padding: 40px 20px 0 40px;
+  padding: 40px 20px 20px 80px;
   width: 100%;
   height: 70px;
   text-align: left;
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 `;
 
 export const ContentBox = styled.div`
@@ -31,13 +33,6 @@ export const TextBox = styled.div`
   height: 340px;
   background-color: rgb(37, 105, 31, 0.12);
   position: relative;
-`;
-
-export const GoBack = styled.button`
-  margin: 5px;
-  padding: 5px;
-  background: none;
-  border: none;
 `;
 
 export const GoReview = styled.div`
