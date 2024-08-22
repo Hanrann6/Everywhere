@@ -2,13 +2,14 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 const StyledFooter = styled.div`
-  width: 334;
-  height: 18;
+  width: 500px;
+  height: 18px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 20px 0;
 `;
 
 const Option = styled.button`
@@ -16,6 +17,7 @@ const Option = styled.button`
   background-color: rgba(250, 250, 250, 0);
   border: none;
   font-size: 15px;
+  cursor: pointer;
 `;
 
 export function Footer() {
