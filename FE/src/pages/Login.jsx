@@ -8,6 +8,7 @@ import {
 import { Button, TextButton } from '../components/Login/Button';
 import { Input } from '../components/Login/Input';
 import { Footer } from '../components/common/Footer';
+import { LoginLogo } from '../components/common/Logo';
 
 function Login() {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ function Login() {
   return (
     <Container>
       <StyledHeader>
-        <h1> Everywhere </h1>
+        <LoginLogo />
       </StyledHeader>
       <StyledContent>
         <form method="post" onSubmit={() => handleSubmit}>

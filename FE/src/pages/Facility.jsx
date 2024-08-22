@@ -5,12 +5,10 @@ import {
   FacilityImage,
   KeywordList,
 } from '../components/Details';
+import { GoBack } from '../components/common/GoBack';
 import { NavBar } from '../components';
 import * as S from '../styles/facility';
 import data from '../data.json';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
 function Facility() {
   const navigate = useNavigate();
@@ -27,9 +25,7 @@ function Facility() {
         <NavBar />
 
         <S.Header>
-          <S.GoBack onClick={() => navigate(-1)}>
-            <FontAwesomeIcon icon={faAngleLeft} size="2x" />
-          </S.GoBack>
+          <GoBack />
           <span>시설 상세 정보</span>
         </S.Header>
 
