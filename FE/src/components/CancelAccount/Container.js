@@ -3,8 +3,7 @@ import theme from '../../styles/theme.js';
 
 export const Border = styled.div`
   width: 562px;
-  margin: 232.5px 439px;
-
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -15,6 +14,7 @@ export const Border = styled.div`
 export const Header = styled.header`
   flex-basis: 562px;
   align-self: center;
+  margin-top: 20px;
 `;
 
 export const Pragraph = styled.div`
@@ -44,6 +44,7 @@ export const Button = styled.button`
   background-color: ${props => props.bgColor || theme.ewhaGreen};
   color: ${props => props.color || theme.white};
   border: none;
+  cursor: pointer;
 
   font-size: 17px;
   font-weight: 500;
@@ -51,9 +52,8 @@ export const Button = styled.button`
   height: 60px;
   border-radius: 5px;
   transition: background-color 0.1s;
+
   &:hover {
-    background-color: ${props => props.bgColor || theme.backGround};
-    color: ${props => props.color || theme.ewhaGreen};
-    border: 1px solid #ffffff; //#FFFFFF를 theme에서 접근하는 법?
+    background-color: ${props => props.bgColor || theme.subGreen};
   }
 `;
