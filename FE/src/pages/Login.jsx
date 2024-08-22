@@ -13,7 +13,6 @@ import { LoginLogo } from '../components/common/Logo';
 function Login() {
   const navigate = useNavigate();
   const api = 'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/login';
-
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -71,7 +70,7 @@ function Login() {
           />
           <Input
             type="password"
-            name="userPW"
+            name="password"
             value={password}
             onChange={handlePassword}
             placeholder="비밀번호"

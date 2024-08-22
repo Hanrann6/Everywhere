@@ -10,7 +10,6 @@ import {
   StyledContent,
   AlignToCenter,
 } from '../components/SignUp/Container';
-import '../styles/SignUp.css';
 
 //TODO: 체크박스 테두리 만들기;
 

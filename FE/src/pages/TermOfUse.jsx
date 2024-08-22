@@ -1,26 +1,25 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../styles/TermOfUse.css';
 import { CloseButton } from '../components/common/CloseButton';
+import * as Cont from '../components/PrivacyPolicy/Container.js';
+import '../styles/TermOfUse.css';
 
 function TermOfUse() {
   const navigate = useNavigate();
   return (
-    <div>
-      <div>
-        <CloseButton />
-      </div>
-      <header>
+    <Cont.Border>
+      <CloseButton />
+      <Cont.Header>
         <h1 className="headerStyle">이용약관</h1>
-      </header>
-      <div>
+      </Cont.Header>
+      <Cont.Pragraph>
         <h1 className="clauseStyle">제 1조(목적)</h1>
         <h3 className="contentStyle">
           Everywhere가 제공하는 서비스 및 서비스 이용과 관련하여 Everywhere와
           이용자 간의 권리, 의무, 책임 사항 등을 규정함을 목적으로 합니다.
         </h3>
-      </div>
-      <div>
+      </Cont.Pragraph>
+      <Cont.Pragraph>
         <h1 className="clauseStyle">제 2조(서비스의 제공)</h1>
         <h3 className="contentStyle">
           <ol>
@@ -48,7 +47,9 @@ function TermOfUse() {
             </li>
           </ol>
         </h3>
-        <h1 className="clauseStyle">(서비스 이용계약의 종료)</h1>
+      </Cont.Pragraph>
+      <Cont.Pragraph>
+        <h1 className="clauseStyle">제 3조(서비스 이용계약의 종료)</h1>
         <h3 className="contentStyle">
           <ol>
             <li>
@@ -63,8 +64,8 @@ function TermOfUse() {
             </li>
           </ol>
         </h3>
-      </div>
-    </div>
+      </Cont.Pragraph>
+    </Cont.Border>
   );
 }
 
