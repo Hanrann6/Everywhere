@@ -22,9 +22,10 @@ export const Category = styled.button`
 
   &:hover {
     background-color: ${props =>
-      props.color === theme.black ? undefined : '#25691f'};
+      props.color === theme.black ? undefined : theme.ewhaGreen};
   }
-  &:active {
-    background-color: #25691f;
+
+  &.active {
+    background-color: ${({ theme }) => theme.subGreen};
   }
 `;

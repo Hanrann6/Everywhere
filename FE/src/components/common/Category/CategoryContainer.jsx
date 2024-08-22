@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '.';
@@ -12,6 +13,17 @@ import * as S from '../../../styles/home';
 import bgImg from '../../../assets/home_bg.png';
 
 const CategoryContainer = () => {
+  const [keywordList, setKeywordList] = useState([]);
+
+  const handleKeywordList = newKeyword => {
+    setKeywordList(newKeyword);
+  };
+
+  const handleSearch = () => {
+    // TODO: 검색 API 로직 추가
+    console.log(keywordList);
+  };
+
   return (
     <section style={{ backgroundImage: { bgImg } }}>
       <div>
@@ -27,6 +39,8 @@ const CategoryContainer = () => {
                       key={menu}
                       name={menu}
                       isMainCategory={index === 0}
+                      keywordList={keywordList}
+                      handleKeywordList={handleKeywordList}
                     />
                   ))}
                 </S.HorizontalUl>
@@ -40,6 +54,8 @@ const CategoryContainer = () => {
                       key={menu}
                       name={menu}
                       isMainCategory={index === 0}
+                      keywordList={keywordList}
+                      handleKeywordList={handleKeywordList}
                     />
                   ))}
                 </S.HorizontalUl>
@@ -53,6 +69,8 @@ const CategoryContainer = () => {
                       key={menu}
                       name={menu}
                       isMainCategory={index === 0}
+                      keywordList={keywordList}
+                      handleKeywordList={handleKeywordList}
                     />
                   ))}
                 </S.HorizontalUl>
@@ -66,6 +84,8 @@ const CategoryContainer = () => {
                       key={menu}
                       name={menu}
                       isMainCategory={index === 0}
+                      keywordList={keywordList}
+                      handleKeywordList={handleKeywordList}
                     />
                   ))}
                 </S.HorizontalUl>
@@ -79,6 +99,8 @@ const CategoryContainer = () => {
                       key={menu}
                       name={menu}
                       isMainCategory={index === 0}
+                      keywordList={keywordList}
+                      handleKeywordList={handleKeywordList}
                     />
                   ))}
                 </S.HorizontalUl>
@@ -86,7 +108,7 @@ const CategoryContainer = () => {
             </S.CategoryUlLi>
           </ul>
         </div>
-        <S.SearchBtn>
+        <S.SearchBtn onClick={handleSearch}>
           검색하기 <FontAwesomeIcon icon={faMagnifyingGlass} />
         </S.SearchBtn>
       </div>
