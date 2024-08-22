@@ -76,9 +76,7 @@ const Home = () => {
                       <Category
                         key={menu}
                         name={menu}
-                        color={index === 0 && '#000'}
-                        disabled={index === 0 } // 첫 번째 카테고리만 disabled 처리
-                        margin-right={index === 0 && 40}
+                        isMainCategory={index === 0}
                       />
                     ))}
                   </S.HorizontalUl>
@@ -91,7 +89,7 @@ const Home = () => {
                       <Category
                         key={menu}
                         name={menu}
-                        color={index === 0 && '#000'}
+                        isMainCategory={index === 0}
                       />
                     ))}
                   </S.HorizontalUl>
@@ -104,7 +102,7 @@ const Home = () => {
                       <Category
                         key={menu}
                         name={menu}
-                        color={index === 0 && '#000'}
+                        isMainCategory={index === 0}
                       />
                     ))}
                   </S.HorizontalUl>
@@ -117,7 +115,7 @@ const Home = () => {
                       <Category
                         key={menu}
                         name={menu}
-                        color={index === 0 && '#000'}
+                        isMainCategory={index === 0}
                       />
                     ))}
                   </S.HorizontalUl>
@@ -130,7 +128,7 @@ const Home = () => {
                       <Category
                         key={menu}
                         name={menu}
-                        color={index === 0 && '#000'}
+                        isMainCategory={index === 0}
                       />
                     ))}
                   </S.HorizontalUl>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../../styles/theme';
 
 export const CategoryUlLi = styled.li`
   list-style: none;
@@ -17,11 +18,13 @@ export const Category = styled.button`
   white-space: nowrap;
   font-weight: bold;
   margin-right: 3px;
+  cursor: ${props => (props.color === theme.black ? undefined : 'pointer')};
 
-  &:hover{
-    background-color:#25691F;
+  &:hover {
+    background-color: ${props =>
+      props.color === theme.black ? undefined : '#25691f'};
   }
   &:active {
-    background-color:#25691F;
+    background-color: #25691f;
   }
 `;
