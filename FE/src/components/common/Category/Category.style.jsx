@@ -18,7 +18,9 @@ export const Category = styled.button`
   font-weight: bold;
   margin-right: 3px;
 
-  &:hover,
+  &:hover{
+    background-color:#25691F;
+  }
   &:active {
     background-color:#25691F;
   }
