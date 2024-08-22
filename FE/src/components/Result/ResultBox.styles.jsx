@@ -16,7 +16,6 @@ export const Box = styled.span`
 export const Image = styled.div`
   margin: 15px;
   position: relative;
-  left: 15px;
 `;
 
 export const PostName = styled.div`

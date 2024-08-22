@@ -5,7 +5,7 @@ export const Root = styled.div`
 `;
 
 export const categoryUl = styled.ul`
-  margin-top:160px
+  margin-top: 160px;
   text-align: center;
   margin-bottom: 30px;
   padding-left: 0px;
@@ -24,7 +24,7 @@ export const H2Text = styled.h2`
   margin-top: 125px;
   margin-bottom: 30px;
   text-align: center;
-  width: 100%; 
+  width: 100%;
   top: 30px;
   color: #000000;
 `;
@@ -50,7 +50,7 @@ export const CategoryUlLi = styled.li`
 `;
 
 export const SearchBtn = styled.button`
-  background-color: #00462a;
+  background-color: ${({ theme }) => theme.ewhaGreen};
   color: #ffffff;
   border: none;
   border-radius: 16px;
@@ -61,8 +61,12 @@ export const SearchBtn = styled.button`
   top: 0px;
   left: 50%;
   transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
-`;
+  cursor: pointer;
 
+  &:hover {
+    background-color: ${({ theme }) => theme.subGreen};
+  }
+`;
 
 export const GreenBG = styled.div`
   background-color: #e5ede4;
