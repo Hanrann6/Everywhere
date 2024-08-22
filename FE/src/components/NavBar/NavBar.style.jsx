@@ -17,7 +17,7 @@ export const NavBarContainer = styled.div`
 `;
 
 export const Logo = styled.div`
-  padding-left: 10px;
+  padding-left: 20px;
 
   a {
     text-decoration: none;
@@ -51,7 +51,7 @@ export const NavMenu = styled.nav`
     list-style: none;
     display: flex;
     margin: 0;
-    padding-left: 0;
+    padding-left: 40px;
   }
 
   li {
@@ -83,7 +83,7 @@ export const MemberMenu = styled.div`
   }
 
   button {
-    width: 80px;
+    width: 90px;
     border-width: thin;
     border-radius: 3px;
     padding: 5px 15px;
@@ -102,7 +102,7 @@ export const LoginButton = styled.button`
   color: #ffffff;
   border-color: ${({ theme }) => theme.ewhaGreen};
   width: 90px;
-  margin-right: 10px;
+  margin-right: 30px;
 `;
 
 export const LogoutButton = styled.button`

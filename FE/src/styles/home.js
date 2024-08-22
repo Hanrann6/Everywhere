@@ -7,6 +7,8 @@ export const Root = styled.div`
 export const categoryUl = styled.ul`
   margin-top:160px
   text-align: center;
+  margin-bottom: 30px;
+  padding-left: 0px;
 `;
 
 export const Category = styled.button`
@@ -14,12 +16,12 @@ export const Category = styled.button`
   color: #ffffff;
   border: none;
   border-radius: 20px;
-  padding: 10px 30px;
+  padding: 30px;
 `;
 
 export const H2Text = styled.h2`
   position: stickey;
-  margin-top: 110px;
+  margin-top: 125px;
   margin-bottom: 30px;
   text-align: center;
   width: 100%; 
@@ -51,9 +53,10 @@ export const SearchBtn = styled.button`
   background-color: #00462a;
   color: #ffffff;
   border: none;
-  border-radius: 20px;
-  padding: 25px 50px;
+  border-radius: 16px;
+  padding: 15px 25px;
   font-size: 16px;
+  font-weight: bold;
   position: relative;
   top: 0px;
   left: 50%;
