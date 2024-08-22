@@ -54,7 +54,7 @@ public class ReviewController {
 
     //리뷰 작성 api
     @PostMapping("/{fac_id}")
-    public ResponseEntity<?> postReview(@PathVariable("fac_id") int fac_id, @RequestBody ReviewDTO reviewDTO) {
+    public ResponseEntity<?> postReview(@PathVariable("fac_id") Integer fac_id, @RequestBody ReviewDTO reviewDTO) {
         try {
             // 리뷰 작성 서비스 호출
             Review savedReview = reviewService.saveReview(fac_id, reviewDTO);
@@ -66,15 +66,8 @@ public class ReviewController {
             successResponse.put("reviewId", savedReview.getReview_id());
 
             return ResponseEntity.ok(successResponse);
-        } catch (IllegalArgumentException e) {
-            // 시설이 없을 때의 실패 응답 생성
-            Map<String, Object> failureResponse = new HashMap<>();
-            failureResponse.put("status", 404);
-            failureResponse.put("message", e.getMessage());
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(failureResponse);
         } catch (Exception e) {
-            // 기타 실패 응답 생성
+            // 실패 응답 생성
             Map<String, Object> failureResponse = new HashMap<>();
             failureResponse.put("status", 400);
             failureResponse.put("message", "Review Upload Fail");

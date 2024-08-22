@@ -19,6 +19,8 @@ public class ReviewService {
 
     @Autowired
     private ReviewRepository reviewRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -28,29 +30,30 @@ public class ReviewService {
         return reviewRepository.findReviewsByFacilityId(fac_id);
     }
 
-    public Review saveReview(int fac_id, ReviewDTO reviewDTO) {
-        // Facility ID 검증
-        Facility facility = facilityRepository.findById(fac_id).orElse(null);
-        if (facility == null) {
-            throw new IllegalArgumentException("Facility not found");
+    public Review saveReview(Integer fac_id, ReviewDTO reviewDTO) {
+        try {
+            Review review = new Review();
+            review.setReview(reviewDTO.getReview());
+            review.setGood_YN(reviewDTO.isGoodYN());
+            review.setDate(reviewDTO.getDate());
+
+            // fac_id를 URL에서 받아와서 설정
+            Facility facility = facilityRepository.findById(fac_id)
+                    .orElseThrow(() -> new RuntimeException("Facility not found"));
+            review.setFacility(facility);
+
+            review.setBuild_id(facility.getBuild_id());
+
+            // userId는 DTO에서 받아와서 설정
+            User user = new User();
+            user.setUser_id(reviewDTO.getUser_id());
+            review.setUser(user);
+
+            // 리뷰 저장
+            return reviewRepository.save(review);
+        } catch (Exception e) {
+            throw new RuntimeException("Review upload failed");
         }
-
-        // User ID 검증
-        User user = userRepository.findById((long) reviewDTO.getUser_id()).orElse(null);
-        if (user == null) {
-            throw new RuntimeException("User not found");
-        }
-
-
-        // Review 객체 생성 및 설정
-        Review review = new Review();
-        review.setReview(reviewDTO.getReview());
-        review.setGood_YN(reviewDTO.isGoodYN());
-        review.setDate(Date.valueOf(reviewDTO.getDate())); // 문자열을 java.sql.Date로 변환
-        review.setFacility(facility);
-
-        // 리뷰 저장
-        return reviewRepository.save(review);
     }
 }
 

@@ -31,7 +31,11 @@ public class Review {
     @JoinColumn(name = "fac_id")
     private Facility facility;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @Column(name = "build_id")
+    private int build_id;
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
