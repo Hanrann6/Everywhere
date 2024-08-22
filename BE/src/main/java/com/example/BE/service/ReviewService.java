@@ -1,13 +1,17 @@
 package com.example.BE.service;
 
+import com.example.BE.dto.ReviewDTO;
 import com.example.BE.dto.ReviewResponse;
 import com.example.BE.entity.Facility;
 import com.example.BE.entity.Review;
+import com.example.BE.model.User;
 import com.example.BE.repository.FacilityRepository;
 import com.example.BE.repository.ReviewRepository;
+import com.example.BE.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -17,39 +21,39 @@ public class ReviewService {
     private ReviewRepository reviewRepository;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private FacilityRepository facilityRepository;
 
     public List<Review> getReviewsByFacilityId(int fac_id) {
         return reviewRepository.findReviewsByFacilityId(fac_id);
     }
 
-    public ReviewResponse uploadReview(int fac_id, Review review) {
-        ReviewResponse response = new ReviewResponse();
-
+    public Review saveReview(Integer fac_id, ReviewDTO reviewDTO) {
         try {
-            // Facility ID 검증
-            Facility facility = facilityRepository.findById(fac_id).orElse(null);
-            if (facility == null) {
-                response.setStatus(400);
-                response.setMessage("Facility not found");
-                return response;
-            }
+            Review review = new Review();
+            review.setReview(reviewDTO.getReview());
+            review.setGood_YN(reviewDTO.isGoodYN());
+            review.setDate(reviewDTO.getDate());
 
-            // 리뷰 객체의 Facility 설정
+            // fac_id를 URL에서 받아와서 설정
+            Facility facility = facilityRepository.findById(fac_id)
+                    .orElseThrow(() -> new RuntimeException("Facility not found"));
             review.setFacility(facility);
 
+            review.setBuild_id(facility.getBuild_id());
+
+            // userId는 DTO에서 받아와서 설정
+            User user = new User();
+            user.setUser_id(reviewDTO.getUser_id());
+            review.setUser(user);
+
             // 리뷰 저장
-            Review savedReview = reviewRepository.save(review);
-
-            response.setStatus(200);
-            response.setMessage("Review Upload Success");
-            response.setReviewId(savedReview.getReview_id());
+            return reviewRepository.save(review);
         } catch (Exception e) {
-            response.setStatus(400);
-            response.setMessage("Review Upload Fail");
+            throw new RuntimeException("Review upload failed");
         }
-
-        return response;
     }
 }
 

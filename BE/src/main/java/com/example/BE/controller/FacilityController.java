@@ -1,8 +1,11 @@
 package com.example.BE.controller;
 
+import com.example.BE.dto.FacilitySearchCriteria;
 import com.example.BE.entity.Facility;
+import com.example.BE.response.ResponseMessage;
 import com.example.BE.service.FacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,33 +19,33 @@ public class FacilityController {
     @Autowired
     private FacilityService facilityService;
 
-    //시설 상세 조회 api - test 성공
-    @GetMapping("/{fac_id}")
-    public ResponseEntity<?> getFacilityById(@PathVariable("fac_id") Integer fac_id) {
-        Optional<Facility> facility = facilityService.getFacilityById(fac_id);
-        if (facility.isPresent()) {
-            return ResponseEntity.ok(facility.get());
-        } else {
-            return ResponseEntity.status(404).body("Facility not found");
+    //시설 상세 조회
+    @GetMapping("/{facId}")
+    public ResponseEntity<?> getFacilityById(@PathVariable("facId") int facId) {
+        try {
+            Optional<Facility> facilityOptional = facilityService.getFacilityById(facId);
+            if (facilityOptional.isPresent()) {
+                Facility facility = facilityOptional.get();
+                return ResponseEntity.ok(facility);
+            } else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseMessage(404, "Facility Not Exists"));
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(400, "Facility Found Fail"));
         }
     }
 
-    @GetMapping("/fac")
-    public List<Facility> getFacilities(
-            @RequestParam(required = false) List<Integer> buildingIds,
-            @RequestParam(required = false) Boolean socketYn,
-            @RequestParam(required = false) Boolean typingYn,
-            @RequestParam(required = false) Boolean whisperYn,
-            @RequestParam(required = false) Boolean loudYn,
-            @RequestParam(required = false) Boolean teamYn,
-            @RequestParam(required = false) Boolean lieYn,
-            @RequestParam(required = false) Boolean eatYn,
-            @RequestParam(required = false) Boolean convYn,
-            @RequestParam(required = false) Boolean cafeYn,
-            @RequestParam(required = false) Boolean computerYn,
-            @RequestParam(required = false) Boolean reserveYn,
-            @RequestParam(required = false) Boolean seatYn
-    ) {
-        return facilityService.getFacilities(buildingIds, socketYn, typingYn, whisperYn, loudYn, teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, reserveYn, seatYn);
+    @GetMapping
+    public ResponseEntity<?> getFacilities(FacilitySearchCriteria criteria) {
+        try {
+            List<Facility> facilities = facilityService.getFacilities(
+                    criteria.getBuildingIds(), criteria.getSocketYn(), criteria.getTypingYn(), criteria.getWhisperYn(), criteria.getLoudYn(),
+                    criteria.getTeamYn(), criteria.getLieYn(), criteria.getEatYn(), criteria.getConvYn(), criteria.getCafeYn(), criteria.getComputerYn(),
+                    criteria.getReserveYn(), criteria.getSeatYn()
+            );
+            return ResponseEntity.ok(facilities);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(400, "Facility Found Fail"));
+        }
     }
 }
