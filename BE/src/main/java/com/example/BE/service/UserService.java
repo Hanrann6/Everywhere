@@ -9,9 +9,11 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
+    //회원가입 서비스
     public User registerUser(String email, String password) {
         if (userRepository.findByEmail(email) != null) {
             throw new RuntimeException("Email already exists");
@@ -32,7 +34,20 @@ public class UserService {
         return Optional.empty();
     }
 
-    public void deleteUser(Long user_id) {
-        userRepository.deleteById(user_id);
+    public User authenticateUser(String email, String password) {
+        return userRepository.findByEmail(email); // NULL 반환 시 사용자 없음
+    }
+
+    public boolean deleteUserById(Long userId) {
+        try {
+            if (userRepository.existsById(userId)) {
+                userRepository.deleteById(userId);
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

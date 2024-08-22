@@ -16,5 +16,4 @@ public class UserDTO {
 
     private String email;
     private String pwd;
-    private String user_date;
 }
