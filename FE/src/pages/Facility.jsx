@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   Button,
@@ -5,65 +6,68 @@ import {
   FacilityImage,
   KeywordList,
 } from '../components/Details';
-import { GoBack } from '../components/common/GoBack';
 import { NavBar } from '../components';
+import { API_URL } from '../constants';
 import * as S from '../styles/facility';
-import data from '../data.json';
 
 function Facility() {
   const navigate = useNavigate();
   const { facId } = useParams();
+  const [facility, setFacility] = useState(null);
 
-  //useParams을 통해 url에서 받은 파라미터인 facId값을 json파일의 facId와 비교하여 같은 객체를 details에 저장
-  const details = data.facility.find(fac => fac.facId === Number(facId));
-  //details에서 value값 출력
+  useEffect(() => {
+    async function fetchFacility() {
+      const response = await fetch(`${API_URL}/fac/${facId}`);
+      const data = await response.json();
+      console.log(123, data);
+      setFacility(data);
+    }
+    //에러 발생 예외처리
+
+    fetchFacility();
+  }, [facId]);
+
+  if (!facility) return null;
+  // const { imagePath, flour, facName, time, content } = facility;
 
   return (
-    console.log({ details }),
-    (
-      <S.Wrapper>
-        <NavBar />
-
-        <S.Header>
-          <GoBack />
-          <span>시설 상세 정보</span>
-        </S.Header>
-
-        <S.ContentBox>
-          <FacilityImage
-            width="450px"
-            height="337px"
-            imagePath={details.imagePath}
+    <S.Wrapper>
+      <NavBar />
+      <S.Header>
+        {/* <GoBack /> */}
+        <span>시설 상세 정보</span>
+      </S.Header>
+      <S.ContentBox>
+        <FacilityImage
+          width="450px"
+          height="337px"
+          imagePath={facility?.imagePath}
+        />
+        <S.TextBox>
+          <FacilityDetails
+            location={facility?.flour}
+            name={facility?.facName}
+            time={facility?.time}
+            content={facility?.content}
           />
-
-          <S.TextBox>
-            <FacilityDetails
-              location={details.flour}
-              name={details.facName}
-              time={details.time}
-              content={details.content}
+          <KeywordList facId={Number(facId)} />
+          <S.GoReview>
+            <Button
+              title="리뷰 확인하기"
+              onClick={() => {
+                navigate('/review');
+              }}
             />
-
-            <KeywordList facId={Number(facId)} />
-
-            <S.GoReview>
-              <Button
-                title="리뷰 확인하기"
-                onClick={() => {
-                  navigate('/review');
-                }}
-              />
-              <Button
-                title="리뷰 작성하기"
-                onClick={() => {
-                  navigate('/write');
-                }}
-              />
-            </S.GoReview>
-          </S.TextBox>
-        </S.ContentBox>
-      </S.Wrapper>
-    )
+            <Button
+              title="리뷰 작성하기"
+              onClick={() => {
+                navigate('/write');
+              }}
+            />
+          </S.GoReview>
+        </S.TextBox>
+      </S.ContentBox>
+    </S.Wrapper>
   );
 }
 

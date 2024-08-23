@@ -9,10 +9,10 @@ import { Button, TextButton } from '../components/Login/Button';
 import { Input } from '../components/Login/Input';
 import { Footer } from '../components/common/Footer';
 import { LoginLogo } from '../components/common/Logo';
+import { API_URL } from '../constants';
 
 function Login() {
   const navigate = useNavigate();
-  const api = 'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/login';
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,7 +28,7 @@ function Login() {
     event.preventDefault();
 
     try {
-      const response = await fetch(api, {
+      const response = await fetch(`${API_URL}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ function Login() {
         <LoginLogo />
       </StyledHeader>
       <StyledContent>
-        <form method="post" onSubmit={() => handleSubmit}>
+        <form method="post" onSubmit={handleSubmit}>
           <Input
             type="email"
             name="email"
@@ -76,7 +76,7 @@ function Login() {
             placeholder="비밀번호"
             required
           />
-          <Button type="submit"> 로그인 </Button>
+          <Button type="submit">로그인</Button>
         </form>
         <TextButton onClick={() => navigate('/signup')}>
           아직 회원이 아니신가요?
