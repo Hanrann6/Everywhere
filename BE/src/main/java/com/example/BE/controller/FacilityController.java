@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/fac")
 public class FacilityController {
 
@@ -21,6 +22,7 @@ public class FacilityController {
 
     //시설 상세 조회
     @GetMapping("/{facId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> getFacilityById(@PathVariable("facId") int facId) {
         try {
             Optional<Facility> facilityOptional = facilityService.getFacilityById(facId);
@@ -35,7 +37,9 @@ public class FacilityController {
         }
     }
 
+    //시설 필터링
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> getFacilities(FacilitySearchCriteria criteria) {
         try {
             List<Facility> facilities = facilityService.getFacilities(

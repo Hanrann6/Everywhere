@@ -14,17 +14,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
     //test용
     @GetMapping("/hello")
+    @CrossOrigin(origins = "http://localhost:3000")
     public String hello(){
         return "Hello !";
     }
     //회원가입 - test 성공
     @PostMapping("/create")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> registerUser(@RequestBody UserDTO userDTO) {
         try {
             User user = userService.registerUser(userDTO.getEmail(), userDTO.getPwd());
@@ -41,6 +44,7 @@ public class UserController {
     }
     //로그인 - test 성공
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseMessage loginUser(@RequestBody UserDTO userDTO) {
         User user = userService.authenticateUser(userDTO.getEmail(), userDTO.getPwd());
 
@@ -57,6 +61,7 @@ public class UserController {
 
     //회원탈퇴 - test 성공
     @DeleteMapping("/delete/{userId}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseMessage deleteUser(@PathVariable("userId") Long userId) {
         boolean isDeleted = userService.deleteUserById(userId);
 
