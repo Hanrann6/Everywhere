@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/fac/reviews")
 public class ReviewController {
 
@@ -23,6 +24,7 @@ public class ReviewController {
 
     //시설별 리뷰 조회
     @GetMapping("/{fac_id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> getReviewsByFacilityId(@PathVariable("fac_id") Integer fac_id) {
         try {
             List<Review> reviews = reviewService.getReviewsByFacilityId(fac_id);
@@ -54,6 +56,7 @@ public class ReviewController {
 
     //리뷰 작성 api
     @PostMapping("/{fac_id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> postReview(@PathVariable("fac_id") Integer fac_id, @RequestBody ReviewDTO reviewDTO) {
         try {
             // 리뷰 작성 서비스 호출
