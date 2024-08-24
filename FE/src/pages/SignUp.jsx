@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Checkbox } from '../components/SignUp/Checkbox';
 import { Input } from '../components/Login/Input';
 import { Button } from '../components/Login/Button';
+import { GoBack } from '../components/common/GoBack';
 import { TextButton } from '../components/Login/Button';
 import {
   Container,
@@ -10,13 +11,12 @@ import {
   StyledContent,
   AlignToCenter,
 } from '../components/SignUp/Container';
+import { API_URL } from '../constants';
 
 //TODO: 체크박스 테두리 만들기;
 
 function SignUp() {
   const navigate = useNavigate();
-  const api =
-    'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com/user/create';
 
   const [userEmail, setUserEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,7 +62,7 @@ function SignUp() {
     navigate('/');
   }
 
-  const handleSignup = async event => {
+  const handleSubmit = async event => {
     event.preventDefault();
 
     if (!isPasswordValid || !isPasswordMatch) {
@@ -75,7 +75,7 @@ function SignUp() {
     };
 
     try {
-      const response = await fetch(api, {
+      const response = await fetch(`${API_URL}/user/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ function SignUp() {
         alert(`회원가입 실패: ${result.message}`);
       }
     } catch (error) {
-      console.error('오류 발생:', error);
+      alert('오류 발생:', error);
     }
   };
 
@@ -142,7 +142,7 @@ function SignUp() {
       </StyledHeader>
 
       <StyledContent>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <h3> 학교 이메일 계정을 입력하세요 </h3>
             <Input
@@ -159,7 +159,7 @@ function SignUp() {
             <h3> 비밀번호를 입력하세요 </h3>
             <Input
               type="password"
-              name="userPassword"
+              name="password"
               value={password}
               onChange={handlePassword}
               placeholder="비밀번호"
@@ -199,10 +199,7 @@ function SignUp() {
             )}
           </label>
           <AlignToCenter>
-            <Button
-              style={{ margin: '40px auto' }}
-              onClick={() => handleSignup}
-            >
+            <Button style={{ margin: '40px auto' }} type="submit">
               Everywhere 회원가입
             </Button>
           </AlignToCenter>

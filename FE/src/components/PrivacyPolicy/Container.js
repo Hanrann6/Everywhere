@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 export const Border = styled.div`
   width: 1154px;
+  height: 800px;
   border: 1.5px solid black;
   border-radius: 10px;
-  margin: 143px;
-  padding: 36px 52px 52px 52px;
+  margin: 50px auto;
+  padding: 20px 52px 52px 52px;
 
   display: flex;
   flex-direction: row;

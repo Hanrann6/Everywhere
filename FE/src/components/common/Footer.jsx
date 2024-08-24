@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import theme from '../../styles/theme.js';
 
 const StyledFooter = styled.div`
   width: 500px;
@@ -14,7 +15,6 @@ const StyledFooter = styled.div`
 
 const Option = styled.button`
   background-color: #ffffff;
-  background-color: rgba(250, 250, 250, 0);
   border: none;
   font-size: 15px;
   cursor: pointer;
