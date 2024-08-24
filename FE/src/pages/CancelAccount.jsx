@@ -2,16 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Cont from '../components/CancelAccount/Container';
-
-//TODO: Input 위로 올리기
+import { API_URL } from '../constants';
 
 function CancelAccount() {
   const navigate = useNavigate();
   function goToHome() {
     navigate('/');
   }
-  const api =
-    'ec2-3-25-114-45.ap-southeast-2.compute.amazonaws.com//user/delete/{userId}'; //이게 맞나요?
+
   const originalCheckWord = 'Ewha is Everywhere';
 
   const [checkWord, setcheckWord] = useState('');
@@ -23,7 +21,7 @@ function CancelAccount() {
     setIsCheckWordMatch(originalCheckWord === value);
   };
 
-  const handleCancelAccount = async event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     if (!ischeckWordMatch) {
       return;
@@ -34,7 +32,7 @@ function CancelAccount() {
     };
 
     try {
-      const response = await fetch(api, {
+      const response = await fetch(`${API_URL}/user/delete/{userId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +88,7 @@ function CancelAccount() {
         </h4>
       </Cont.Pragraph>
 
-      <Cont.Form>
+      <Cont.Form onSubmit={handleSubmit}>
         <Cont.Input
           type="text"
           name="checkWord"
@@ -136,9 +134,7 @@ function CancelAccount() {
             ※ 자세한 내용은 개인정보처리방침을 확인해주세요.
           </h3>
         </Cont.Warn>
-        <Cont.Button onClick={handleCancelAccount}>
-          Everywhere 회원 탈퇴하기
-        </Cont.Button>
+        <Cont.Button type="submit">Everywhere 회원 탈퇴하기</Cont.Button>
       </Cont.Form>
     </Cont.Border>
   );

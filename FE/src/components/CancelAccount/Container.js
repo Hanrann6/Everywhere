@@ -4,6 +4,7 @@ import theme from '../../styles/theme.js';
 export const Border = styled.div`
   width: 562px;
   margin: 0 auto;
+  padding-top: 150px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

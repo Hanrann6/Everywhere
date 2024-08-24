@@ -12,10 +12,9 @@ export const Button = styled.button`
   height: 60px;
   border-radius: 5px;
   transition: background-color 0.1s;
+  cursor: pointer;
   &:hover {
-    background-color: ${props => props.bgColor || theme.backGround};
-    color: ${props => props.color || theme.ewhaGreen};
-    border: 1px solid #ffffff; //#FFFFFF를 theme에서 접근하는 법?
+    background-color: ${props => props.bgColor || theme.subGreen};
   }
 `;
 
@@ -27,4 +26,5 @@ export const TextButton = styled.button`
   text-align: center;
   font-size: 17px;
   text-decoration-line: underline;
+  cursor: pointer;
 `;

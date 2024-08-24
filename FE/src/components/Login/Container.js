@@ -6,20 +6,19 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  margin: 156px 520px 135px 520px;
+  margin: 0 auto;
+  padding-top: 156px;
   width: 400px;
   height: 702px;
   //flex: 1 0 auto;
 `;
 export const StyledHeader = styled.header`
-  display: flex;
-  width: 209px;
-  height: 42px;
-  flex-direction: column;
+  display: block;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  margin: 0px;
-  padding: 0px;
+  margin: 0 auto;
   //flex: 1 0 auto;
 `;
 export const StyledContent = styled.body`

@@ -1,13 +1,23 @@
 import { Link } from 'react-router-dom';
 import Login from '../../assets/logo/logo_login.svg';
+import Nav from '../../assets/logo/logo_nav.svg';
 import Main from '../../assets/logo/logo_mainNav.svg';
 import Footer from '../../assets/logo/logo_footer.svg';
 
-//홈화면
+//홈화면 1
 export const Logo = () => {
   return (
     <Link to="/">
       <img src={Main} alt="Everywhere" width="215" height="38" />
+    </Link>
+  );
+};
+
+//홈화면 2
+export const NavLogo = () => {
+  return (
+    <Link to="/">
+      <img src={Nav} alt="Everywhere" width="215" height="38" />
     </Link>
   );
 };
