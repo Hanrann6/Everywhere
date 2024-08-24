@@ -22,6 +22,7 @@ function App() {
             <Route path="/cancelaccount" element={<CancelAccount />} />
             <Route path="/fac/:facId" element={<Facility />} />
             <Route path="/notice" element={<Notice />} />
+            <Route path="/building" element={<ShowBuilding />} />
             <Route path="/printreview/:facId" element={<PrintReview />} />
           </Routes>
         </BrowserRouter>
