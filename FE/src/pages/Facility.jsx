@@ -31,7 +31,6 @@ function Facility() {
         setError(error.message); // 에러 처리
       }
     }
-    //에러 발생 예외처리
 
     fetchFacility();
   }, [facId]);
@@ -62,7 +61,7 @@ function Facility() {
             <Button
               title="리뷰 확인하기"
               onClick={() => {
-                navigate('/review');
+                navigate(`/printreview/${facId}`);
               }}
             />
             <Button
