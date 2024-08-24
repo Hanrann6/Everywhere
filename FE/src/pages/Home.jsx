@@ -4,8 +4,7 @@ import { CategoryContainer, NavBar, Result, Footer } from '../components';
 const Home = () => {
   const searchResults = [
     {
-      // 검색 결과 테스트 데이터
-      // TODO: api 붙이기
+      // 검색 결과 프론트단 테스트 데이터
       id: 1,
       post: {
         postId: 1,

@@ -1,5 +1,5 @@
 // 건물과 buildId 메칭을 위한 데이터
-const buildingId = [
+export const buildingId = [
   {
     'ECC' : 100,
     '중앙도서관' : 200,
