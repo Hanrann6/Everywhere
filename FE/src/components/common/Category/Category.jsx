@@ -51,7 +51,6 @@ export default function Category({
       }
     });
 
-    splitFacID()
   };
 
   useEffect(() => {
