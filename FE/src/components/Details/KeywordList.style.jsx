@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Keyword = styled.div`
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-top: 0;
   padding: 8px 12px;
   height: 20px;
   background-color: #25691f;
@@ -20,5 +20,4 @@ export const KeywordWrapper = styled.div`
   padding-left: 30px;
   display: flex;
   justify-content: left;
-  flex-wrap: wrap;
 `;

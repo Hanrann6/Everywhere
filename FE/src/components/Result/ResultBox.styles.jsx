@@ -10,12 +10,12 @@ export const Box = styled.span`
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `;
 
 export const Image = styled.div`
   margin: 15px;
   position: relative;
-  cursor: pointer;
 `;
 
 export const PostName = styled.div`

@@ -1,12 +1,10 @@
 import * as S from '../styles/notice';
-import { useNavigate } from 'react-router';
 import { NavBar } from '../components';
 import { GoBack } from '../components/common/GoBack';
 import { Footer } from '../components/common/Footer';
 import { FiVolume2 } from 'react-icons/fi';
 
 function Notice() {
-  const navigate = useNavigate();
   return (
     <S.Wrapper>
       <NavBar />
@@ -22,13 +20,11 @@ function Notice() {
       <S.List>
         <S.Notice>
           <FiVolume2 size={20} style={{ marginRight: '10px' }}></FiVolume2>
-          <S.Text onClick={() => navigate('/termofuse')}>이용약관</S.Text>
+          <S.Text>이용약관</S.Text>
         </S.Notice>
         <S.Notice>
           <FiVolume2 size={20} style={{ marginRight: '10px' }}></FiVolume2>
-          <S.Text onClick={() => navigate('/privacypolicy')}>
-            개인정보처리방침
-          </S.Text>
+          <S.Text>개인정보처리방침</S.Text>
         </S.Notice>
         <S.Notice>
           <FiVolume2 size={20} style={{ marginRight: '10px' }}></FiVolume2>
