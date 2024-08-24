@@ -1,8 +1,6 @@
 package com.example.BE.controller;
 
 import com.example.BE.dto.ReviewDTO;
-import com.example.BE.dto.ReviewResponse;
-import com.example.BE.entity.Facility;
 import com.example.BE.entity.Review;
 import com.example.BE.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,9 @@ public class ReviewController {
                 reviewMap.put("review", Map.of(
                         "review_id", reviews.get(i).getReview_id(),
                         "content", reviews.get(i).getReview(),
-                        "good_YN", reviews.get(i).isGood_YN(),
+                        "density", reviews.get(i).getDensity(),
+                        "clean", reviews.get(i).getClean(),
+                        "satisfy", reviews.get(i).getSatisfy(),
                         "date", reviews.get(i).getDate()
                 ));
                 response.put("review" + (i + 1), reviewMap);
