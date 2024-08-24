@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { Checkbox } from '../components/SignUp/Checkbox';
 import { Input } from '../components/Login/Input';
 import { Button } from '../components/Login/Button';
-import { GoBack } from '../components/common/GoBack';
 import { TextButton } from '../components/Login/Button';
 import {
   Container,
@@ -12,6 +11,7 @@ import {
   AlignToCenter,
 } from '../components/SignUp/Container';
 import { API_URL } from '../constants';
+import { GoBackButton } from '../components/common/CloseButton';
 
 //TODO: 체크박스 테두리 만들기;
 
@@ -71,7 +71,7 @@ function SignUp() {
 
     const payload = {
       email: userEmail,
-      password: password,
+      pwd: password,
     };
 
     try {
@@ -80,15 +80,15 @@ function SignUp() {
         headers: {
           'Content-Type': 'application/json',
         },
+        credentials: 'include',
         body: JSON.stringify(payload),
       });
 
       const result = await response.json();
-
       if (response.status === 200) {
-        alert(`회원가입 성공: ${result.email}`);
+        alert(`회원가입 성공: ${result.message}`);
         goToHome();
-      } else if (response.status === 400) {
+      } else if (response.status === 404) {
         alert(`회원가입 실패: ${result.message}`);
       }
     } catch (error) {
@@ -98,6 +98,7 @@ function SignUp() {
 
   return (
     <Container>
+      <GoBackButton />
       <div>
         <h1
           style={{
@@ -159,7 +160,7 @@ function SignUp() {
             <h3> 비밀번호를 입력하세요 </h3>
             <Input
               type="password"
-              name="password"
+              name="pwd"
               value={password}
               onChange={handlePassword}
               placeholder="비밀번호"
@@ -185,7 +186,6 @@ function SignUp() {
             <h3> 비밀번호를 다시 입력하세요 </h3>
             <Input
               type="password"
-              id="passwordRetype"
               name="passwordRetype"
               value={passwordRetype}
               onChange={handlePasswordRetype}
