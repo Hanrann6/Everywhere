@@ -10,7 +10,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 export function ResultBox({ facility }) {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate(`/fac/${facility.fac_id}`);
+    navigate(`${API_URL}/fac/${facility.fac_id}`);
   };
 
   return (
@@ -23,14 +23,12 @@ export function ResultBox({ facility }) {
         />
       </S.Image>
       <S.PostName>{facility.fac_name}</S.PostName>
-      <S.Content>{facility.info}</S.Content>
       <S.GreenText>
         <S.Location>
           <FontAwesomeIcon
             icon={faLocationDot}
             style={{ marginRight: '6px' }}
           />
-
           {facility.flour}
         </S.Location>
         <S.Time>
