@@ -10,7 +10,7 @@ import java.util.List;
 public class FacilitySpecification {
 
     public static Specification<Facility> withFilters(
-            List<Integer> buildingId,
+            List<Integer> buildId,
             Boolean socketYn,
             Boolean typingYn,
             Boolean whisperYn,
@@ -29,8 +29,8 @@ public class FacilitySpecification {
         return (root, query, criteriaBuilder) -> {
             Predicate predicate = criteriaBuilder.conjunction();
 
-            if (buildingId != null) {
-                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("buildId"), buildingId));
+            if (buildId != null && !buildId.isEmpty()) {
+                predicate = criteriaBuilder.and(predicate, root.get("build_id").in(buildId));
             }
 
             if (socketYn != null) {
