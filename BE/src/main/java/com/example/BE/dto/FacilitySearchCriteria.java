@@ -17,8 +17,8 @@ public class FacilitySearchCriteria {
     private Boolean convYn;
     private Boolean cafeYn;
     private Boolean computerYn;
-    private Boolean printerYN;
-    private Boolean nonstopYN;
+    private Boolean printerYn;
+    private Boolean nonstopYn;
     private Boolean reserveYn;
     private Boolean seatYn;
 }
