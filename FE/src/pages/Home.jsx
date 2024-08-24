@@ -5,7 +5,7 @@ const Home = () => {
   const searchResults = [
     {
       // 검색 결과 테스트 데이터
-      // TODO: Request
+      // TODO: api 붙이기
       id: 1,
       post: {
         postId: 1,
