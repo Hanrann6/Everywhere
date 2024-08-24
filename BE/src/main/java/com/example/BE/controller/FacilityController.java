@@ -40,16 +40,29 @@ public class FacilityController {
     //시설 필터링
     @GetMapping
     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<?> getFacilities(FacilitySearchCriteria criteria) {
+    public ResponseEntity<?> getFacilities( @RequestParam(value = "buildId", required = false) List<Integer> buildId,
+                                            @RequestParam(value = "socketYn", required = false) Boolean socketYn,
+                                            @RequestParam(value = "typingYn", required = false) Boolean typingYn,
+                                            @RequestParam(value = "whisperYn", required = false) Boolean whisperYn,
+                                            @RequestParam(value = "loudYn", required = false) Boolean loudYn,
+                                            @RequestParam(value = "teamYn", required = false) Boolean teamYn,
+                                            @RequestParam(value = "lieYn", required = false) Boolean lieYn,
+                                            @RequestParam(value = "eatYn", required = false) Boolean eatYn,
+                                            @RequestParam(value = "convYn", required = false) Boolean convYn,
+                                            @RequestParam(value = "cafeYn", required = false) Boolean cafeYn,
+                                            @RequestParam(value = "computerYn", required = false) Boolean computerYn,
+                                            @RequestParam(value = "printerYn", required = false) Boolean printerYn,
+                                            @RequestParam(value = "nonstopYn", required = false) Boolean nonstopYn,
+                                            @RequestParam(value = "reserveYn", required = false) Boolean reserveYn,
+                                            @RequestParam(value = "seatYn", required = false) Boolean seatYn) {
         try {
             List<Facility> facilities = facilityService.getFacilities(
-                    criteria.getBuildingIds(), criteria.getSocketYn(), criteria.getTypingYn(), criteria.getWhisperYn(), criteria.getLoudYn(),
-                    criteria.getTeamYn(), criteria.getLieYn(), criteria.getEatYn(), criteria.getConvYn(), criteria.getCafeYn(), criteria.getComputerYn(), criteria.getPrinterYn(), criteria.getNonstopYn(),
-                    criteria.getReserveYn(), criteria.getSeatYn()
+                    buildId, socketYn, typingYn, whisperYn, loudYn,
+                    teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, printerYn, nonstopYn,
+                    reserveYn, seatYn
             );
             return ResponseEntity.ok(facilities);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ResponseMessage(400, "Facility Found Fail"));
         }
-    }
-}
+}}

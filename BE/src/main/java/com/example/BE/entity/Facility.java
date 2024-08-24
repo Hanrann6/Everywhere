@@ -14,6 +14,7 @@ public class Facility {
     @Column(name = "fac_id")
     private Integer fac_id;
 
+    @Column(name = "build_id")
     private int build_id;
     private String fac_name;
     private String imagepath;

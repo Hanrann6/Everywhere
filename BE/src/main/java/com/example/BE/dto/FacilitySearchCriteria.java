@@ -6,7 +6,7 @@ import java.util.List;
 
 @Data
 public class FacilitySearchCriteria {
-    private List<Integer> buildingIds;
+    private List<Integer> buildId;
     private Boolean socketYn;
     private Boolean typingYn;
     private Boolean whisperYn;
