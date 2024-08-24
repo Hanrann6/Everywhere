@@ -5,19 +5,28 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  margin: 0;
-  padding: 40px 20px 20px 80px;
+  margin-top: 120px;
+  margin-bottom: 25px;
   width: 100%;
   height: 70px;
   text-align: left;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
   display: flex;
   align-items: center;
 `;
 
+export const GobackWrapper = styled.div`
+  margin-left: 100px;
+`;
+
+export const Text = styled.div`
+  margin-left: 20px;
+`;
+
 export const ContentBox = styled.div`
-  min-width: 1500px;
+  width: 100%;
+  min-width: 900px;
   height: 450px;
   background-color: rgb(134, 179, 130, 0.1);
   display: flex;
@@ -37,7 +46,7 @@ export const TextBox = styled.div`
 
 export const GoReview = styled.div`
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   left: 30px;
   right: 30px;
   display: flex;

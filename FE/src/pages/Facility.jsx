@@ -10,6 +10,7 @@ import { NavBar } from '../components';
 import { GoBack } from '../components';
 import { API_URL } from '../constants';
 import * as S from '../styles/facility';
+import { LuPencil } from 'react-icons/lu';
 
 function Facility() {
   const navigate = useNavigate();
@@ -38,27 +39,23 @@ function Facility() {
   if (error) return <div>Error: {error}</div>;
   if (!facility) return null;
 
-  // const { imagePath, flour, facName, time, content } = facility;
+  const { imagepath, flour, fac_name, time, info } = facility;
 
   return (
     <S.Wrapper>
       <NavBar />
       <S.Header>
-        {<GoBack />}
-        <span>시설 상세 정보</span>
+        <S.GobackWrapper>{<GoBack />}</S.GobackWrapper>
+        <S.Text>시설 상세 정보</S.Text>
       </S.Header>
       <S.ContentBox>
-        <FacilityImage
-          width="450px"
-          height="337px"
-          imagePath={facility?.imagepath}
-        />
+        <FacilityImage width="450px" height="337px" imagePath={imagepath} />
         <S.TextBox>
           <FacilityDetails
-            location={facility?.flour}
-            name={facility?.fac_name}
-            time={facility?.time}
-            content={facility?.info}
+            location={flour}
+            name={fac_name}
+            time={time}
+            content={info}
           />
           <KeywordList facility={facility} />
           <S.GoReview>
@@ -69,11 +66,16 @@ function Facility() {
               }}
             />
             <Button
-              title="리뷰 작성하기"
+              title={
+                <span style={{ display: 'flex', alignItems: 'center' }}>
+                  리뷰 작성하기
+                  <LuPencil size={18} style={{ marginLeft: '6px' }} />
+                </span>
+              }
               onClick={() => {
                 navigate('/write');
               }}
-            />
+            ></Button>
           </S.GoReview>
         </S.TextBox>
       </S.ContentBox>

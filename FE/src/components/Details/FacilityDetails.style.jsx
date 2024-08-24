@@ -9,11 +9,12 @@ export const Wrapper = styled.div`
   text-align: left;
 `;
 export const Text = styled.div`
-  margin: 5px;
-  padding: 3px;
+  margin: 5px 0 6px 8px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   color: ${props => props.color};
   font-size: ${props => props.size};
   font-weight: ${props => props.weight};
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 `;

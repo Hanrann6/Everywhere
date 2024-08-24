@@ -10,12 +10,12 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 export function ResultBox({ facility }) {
   const navigate = useNavigate();
   const onClick = () => {
-    navigate(`/fac`);
+    navigate(`/fac/${facility.post.facId}`);
   };
 
   return (
-    <S.Box onClick={onClick}>
-      <S.Image>
+    <S.Box>
+      <S.Image onClick={onClick}>
         <FacilityImage
           width="285px"
           height="190px"
