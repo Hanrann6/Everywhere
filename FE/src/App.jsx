@@ -6,6 +6,7 @@ import { Home, Login, SignUp, Facility, Notice, ShowBuilding } from './pages';
 import TermOfUse from './pages/TermOfUse.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import CancelAccount from './pages/CancelAccount.jsx';
+import PrintReview from './pages/PrintReview.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/fac/:facId" element={<Facility />} />
             <Route path="/notice" element={<Notice />} />
             <Route path="/building" element={<ShowBuilding />} />
+            <Route path="/printreview/:facId" element={<PrintReview />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
