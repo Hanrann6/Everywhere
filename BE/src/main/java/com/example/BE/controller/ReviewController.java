@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,21 +28,18 @@ public class ReviewController {
         try {
             List<Review> reviews = reviewService.getReviewsByFacilityId(fac_id);
 
-            Map<String, Object> response = new HashMap<>();
-            response.put("totalReview", reviews.size());
+            List<Map<String, Object>> response = new ArrayList<>();
 
-            for (int i = 0; i < reviews.size(); i++) {
+            for (Review review : reviews) {
                 Map<String, Object> reviewMap = new HashMap<>();
-                reviewMap.put("id", i + 1);
-                reviewMap.put("review", Map.of(
-                        "review_id", reviews.get(i).getReview_id(),
-                        "content", reviews.get(i).getReview(),
-                        "density", reviews.get(i).getDensity(),
-                        "clean", reviews.get(i).getClean(),
-                        "satisfy", reviews.get(i).getSatisfy(),
-                        "date", reviews.get(i).getDate()
-                ));
-                response.put("review" + (i + 1), reviewMap);
+                reviewMap.put("review_id", review.getReview_id());
+                reviewMap.put("content", review.getReview());
+                reviewMap.put("density", review.getDensity());
+                reviewMap.put("clean", review.getClean());
+                reviewMap.put("satisfy", review.getSatisfy());
+                reviewMap.put("date", review.getDate());
+
+                response.add(reviewMap);
             }
 
             return ResponseEntity.ok(response);

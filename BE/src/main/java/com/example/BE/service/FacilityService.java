@@ -21,7 +21,7 @@ public class FacilityService {
     }
 
     public List<Facility> getFacilities(
-            List<Integer> buildingIds,  // 변경: List<Integer>로 buildingIds
+            List<Integer> buildId,  // 변경: List<Integer>로 buildingIds
             Boolean socketYn,
             Boolean typingYn,
             Boolean whisperYn,
@@ -38,7 +38,7 @@ public class FacilityService {
             Boolean seatYn
     ) {
         Specification<Facility> spec = FacilitySpecification.withFilters(
-                buildingIds, socketYn, typingYn, whisperYn, loudYn, teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, printerYn, nonstopYn, reserveYn, seatYn
+                buildId, socketYn, typingYn, whisperYn, loudYn, teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, printerYn, nonstopYn, reserveYn, seatYn
         );
         return facilityRepository.findAll(spec);
     }
