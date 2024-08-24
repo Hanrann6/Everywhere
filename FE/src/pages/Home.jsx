@@ -32,8 +32,8 @@ const Home = () => {
   return (
     <S.Root>
       <NavBar />
-      <CategoryContainer />
-      <Result results={searchResults} />
+      <CategoryContainer /> 
+      <Result results={searchResults} /> 
       <Footer />
     </S.Root>
   );

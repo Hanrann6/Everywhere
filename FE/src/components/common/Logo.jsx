@@ -8,7 +8,7 @@ import Footer from '../../assets/logo/logo_footer.svg';
 export const Logo = () => {
   return (
     <Link to="/">
-      <img src={Main} alt="Everywhere" width="215" height="38" />
+      <img src={Main} alt="Everywhere" width="173" height="30" />
     </Link>
   );
 };
@@ -17,7 +17,7 @@ export const Logo = () => {
 export const NavLogo = () => {
   return (
     <Link to="/">
-      <img src={Nav} alt="Everywhere" width="215" height="38" />
+      <img src={Nav} alt="Everywhere" width="124" height="21" padding-left="20px" />
     </Link>
   );
 };
@@ -35,7 +35,7 @@ export const LoginLogo = () => {
 export const FooterLogo = () => {
   return (
     <Link to="/">
-      <img src={Footer} alt="Everywhere" width="215" height="38" />
+      <img src={Footer} alt="Everywhere" width="155" height="27" />
     </Link>
   );
 };
