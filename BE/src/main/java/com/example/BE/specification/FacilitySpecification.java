@@ -21,6 +21,8 @@ public class FacilitySpecification {
             Boolean convYn,
             Boolean cafeYn,
             Boolean computerYn,
+            Boolean printerYn,
+            Boolean nonstopYn,
             Boolean reserveYn,
             Boolean seatYn
     ) {
@@ -60,6 +62,12 @@ public class FacilitySpecification {
             }
             if (computerYn != null) {
                 predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("computer_YN"), computerYn));
+            }
+            if (printerYn != null) {
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("printer_YN"), printerYn));
+            }
+            if (nonstopYn != null) {
+                predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("nonstop_YN"), nonstopYn));
             }
             if (reserveYn != null) {
                 predicate = criteriaBuilder.and(predicate, criteriaBuilder.equal(root.get("reserve_YN"), reserveYn));

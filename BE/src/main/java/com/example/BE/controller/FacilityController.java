@@ -44,7 +44,7 @@ public class FacilityController {
         try {
             List<Facility> facilities = facilityService.getFacilities(
                     criteria.getBuildingIds(), criteria.getSocketYn(), criteria.getTypingYn(), criteria.getWhisperYn(), criteria.getLoudYn(),
-                    criteria.getTeamYn(), criteria.getLieYn(), criteria.getEatYn(), criteria.getConvYn(), criteria.getCafeYn(), criteria.getComputerYn(),
+                    criteria.getTeamYn(), criteria.getLieYn(), criteria.getEatYn(), criteria.getConvYn(), criteria.getCafeYn(), criteria.getComputerYn(), criteria.getPrinterYN(), criteria.getNonstopYN(),
                     criteria.getReserveYn(), criteria.getSeatYn()
             );
             return ResponseEntity.ok(facilities);

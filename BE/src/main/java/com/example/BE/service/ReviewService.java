@@ -1,7 +1,6 @@
 package com.example.BE.service;
 
 import com.example.BE.dto.ReviewDTO;
-import com.example.BE.dto.ReviewResponse;
 import com.example.BE.entity.Facility;
 import com.example.BE.entity.Review;
 import com.example.BE.model.User;
@@ -11,7 +10,6 @@ import com.example.BE.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -34,7 +32,9 @@ public class ReviewService {
         try {
             Review review = new Review();
             review.setReview(reviewDTO.getReview());
-            review.setGood_YN(reviewDTO.isGoodYN());
+            review.setDensity(reviewDTO.getDensity());
+            review.setClean(reviewDTO.getClean());
+            review.setSatisfy(reviewDTO.getSatisfy());
             review.setDate(reviewDTO.getDate());
 
             // fac_id를 URL에서 받아와서 설정

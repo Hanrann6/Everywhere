@@ -20,8 +20,14 @@ public class Review {
     @Column(name = "review")
     private String review;
 
-    @Column(name = "good_YN")
-    private boolean good_YN;
+    @Column(name = "density")
+    private int density;
+
+    @Column(name = "clean")
+    private int clean;
+
+    @Column(name = "satisfy")
+    private int satisfy;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "date")

@@ -32,11 +32,13 @@ public class FacilityService {
             Boolean convYn,
             Boolean cafeYn,
             Boolean computerYn,
+            Boolean printerYn,
+            Boolean nonstopYn,
             Boolean reserveYn,
             Boolean seatYn
     ) {
         Specification<Facility> spec = FacilitySpecification.withFilters(
-                buildingIds, socketYn, typingYn, whisperYn, loudYn, teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, reserveYn, seatYn
+                buildingIds, socketYn, typingYn, whisperYn, loudYn, teamYn, lieYn, eatYn, convYn, cafeYn, computerYn, printerYn, nonstopYn, reserveYn, seatYn
         );
         return facilityRepository.findAll(spec);
     }

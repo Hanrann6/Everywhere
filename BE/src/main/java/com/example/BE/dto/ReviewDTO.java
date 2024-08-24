@@ -17,4 +17,7 @@ public class ReviewDTO {
     private boolean goodYN; // 긍정 여부
     private Date date; // 리뷰 작성 날짜 (형식: yyyy-MM-dd)
     private Long user_id; // 사용자 ID
+    private int density;
+    private int clean;
+    private int satisfy;
 }

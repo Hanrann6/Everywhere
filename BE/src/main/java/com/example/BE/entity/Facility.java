@@ -30,6 +30,8 @@ public class Facility {
     private boolean conv_YN;
     private boolean cafe_YN;
     private boolean computer_YN;
+    private boolean printer_YN;
+    private boolean nonstop_YN;
     private boolean reserve_YN;
     private boolean seat_YN;
 
