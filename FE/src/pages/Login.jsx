@@ -10,7 +10,6 @@ import { Input } from '../components/Login/Input';
 import { Footer } from '../components/common/Footer';
 import { LoginLogo } from '../components/common/Logo';
 import { API_URL } from '../constants';
-import { GoBack } from '../components/common/GoBack';
 
 function Login() {
   const navigate = useNavigate();
@@ -34,34 +33,30 @@ function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email: userEmail, password: password }),
+        body: JSON.stringify({ email: userEmail, pwd: password }),
         credentials: 'include',
       });
 
       const result = await response.json();
-
-      if (response.status === 200) {
-        sessionStorage.setItem('email', result.email);
-        //response.headers.forEach(console.log);
-        //console.log('로그인 성공, 이메일 주소:' + result.email);
+      if (!(response.status === 200)) return;
+      if (result.status === 200) {
+        sessionStorage.setItem('user_id', result.userId);
+        alert('로그인 성공, 이메일 주소:' + result.message);
         navigate('/');
-      } else if (response.status === 400) {
-        //console.log('로그인 실패, 이메일 혹은 비밀번호가 틀림');
-        alert('로그인 실패, 이메일 혹은 비밀번호가 틀림');
-      } else {
-        //console.log('로그인 실패, 존재하지 않는 계정');
-        alert('로그인 실패, 존재하지 않는 계정');
+      }
+      if (result.status === 400) {
+        alert('로그인 실패, 이메일 혹은 비밀번호가 틀림: ' + result.message);
+      }
+      if (result.status === 404) {
+        alert('로그인 실패, 존재하지 않는 계정: ' + result.message);
       }
     } catch (error) {
-      console.error('로그인 중 오류 발생:', error);
       alert('로그인 중 오류 발생:', error);
     }
   };
 
   return (
     <Container>
-      <GoBack />
-
       <StyledHeader>
         <LoginLogo />
       </StyledHeader>
@@ -78,7 +73,7 @@ function Login() {
           />
           <Input
             type="password"
-            name="password"
+            name="pwd"
             value={password}
             onChange={handlePassword}
             placeholder="비밀번호"

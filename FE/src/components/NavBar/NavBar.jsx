@@ -16,7 +16,7 @@ export const NavBar = () => {
   }, []);
 
   const handleLogout = () => {
-    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('user_id');
     setIsLogin(false);
   };
 

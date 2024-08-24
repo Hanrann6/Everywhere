@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Cont from '../components/CancelAccount/Container';
+import { GoBackButton } from '../components/common/CloseButton';
 import { API_URL } from '../constants';
 
 function CancelAccount() {
@@ -11,6 +12,8 @@ function CancelAccount() {
   }
 
   const originalCheckWord = 'Ewha is Everywhere';
+  const user_id = sessionStorage.getItem('user_id');
+  console.log('User ID:', user_id); //디버깅
 
   const [checkWord, setcheckWord] = useState('');
   const [ischeckWordMatch, setIsCheckWordMatch] = useState(true);
@@ -28,25 +31,26 @@ function CancelAccount() {
     }
 
     const payload = {
-      userId: sessionStorage.getItem('email'),
+      user_id: user_id,
     };
 
     try {
-      const response = await fetch(`${API_URL}/user/delete/{userId}`, {
-        method: 'POST',
+      const response = await fetch(`${API_URL}/user/delete/${user_id}`, {
+        method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        credentials: 'include',
+        //body: JSON.stringify(payload),
       });
 
       const result = await response.json();
-
-      if (response.status === 200) {
-        alert('탈퇴 성공');
+      if (!(response.status === 200)) return;
+      if (result.status === 200) {
+        alert('탈퇴 성공: ' + result.message);
         goToHome();
-      } else if (response.status === 400) {
-        alert('탈퇴 실패');
+      } else if (result.status === 400) {
+        alert('탈퇴 실패: ' + result.message);
       }
     } catch (error) {
       console.error('오류 발생:', error);
@@ -55,6 +59,7 @@ function CancelAccount() {
 
   return (
     <Cont.Border>
+      <GoBackButton />
       <Cont.Header>
         <h1
           style={{
