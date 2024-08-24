@@ -61,7 +61,9 @@ function Facility() {
             <Button
               title="리뷰 확인하기"
               onClick={() => {
-                navigate(`/printreview/${facId}`);
+                navigate(`/printreview/${facId}`, {
+                  state: { props: fac_name },
+                });
               }}
             />
             <Button
