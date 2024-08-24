@@ -1,8 +1,10 @@
 import * as S from '../styles/home';
 import { CategoryContainer, NavBar, Result, Footer } from '../components';
 
+
 const Home = () => {
-  const searchResults = [
+  
+  /*const searchResults = [
     {
       // 검색 결과 프론트단 테스트 데이터
       id: 1,
@@ -26,13 +28,13 @@ const Home = () => {
         time: '24시간(심야 시간 무인 운영)',
       },
     },
-  ];
+  ]; */
 
   return (
     <S.Root>
       <NavBar />
       <CategoryContainer /> 
-      <Result results={searchResults} /> 
+     
       <Footer />
     </S.Root>
   );
