@@ -17,7 +17,8 @@ export const NavBarContainer = styled.div`
 `;
 
 export const Logo = styled.div`
-  padding-left: 20px;
+  
+  margin-left: 10px;
 
   a {
     text-decoration: none;
@@ -109,4 +110,6 @@ export const LogoutButton = styled.button`
   background-color: ${({ theme }) => theme.ewhaGreen};
   color: #ffffff;
   border-color: ${({ theme }) => theme.ewhaGreen};
+  width: 90px;
+  margin-right: 30px;
 `;

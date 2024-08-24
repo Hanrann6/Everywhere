@@ -2,7 +2,7 @@ import * as S from './NavBar.style';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import {FooterLogo} from '../common/Logo';
+import { NavLogo } from '../common/Logo';
 
 export const NavBar = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const NavBar = () => {
 
   return (
     <S.NavBarContainer>
-      <FooterLogo/>
+      <NavLogo/>
       <S.NavMenu className="navbar_menu">
         <ul>
           <li>

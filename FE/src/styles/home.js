@@ -21,7 +21,7 @@ export const Category = styled.button`
 
 export const H2Text = styled.h2`
   position: stickey;
-  margin-top: 125px;
+  margin-top: 110px;
   margin-bottom: 30px;
   text-align: center;
   width: 100%;
