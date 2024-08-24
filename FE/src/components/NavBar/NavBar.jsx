@@ -23,14 +23,14 @@ export const NavBar = () => {
 
   return (
     <S.NavBarContainer>
-      <NavLogo/>
+      <NavLogo />
       <S.NavMenu className="navbar_menu">
         <ul>
           <li>
             <Link to="/">홈</Link>
           </li>
           <li>
-            <Link to="#" style={{ color: '#424242' }}>
+            <Link to="/building" style={{ color: '#424242' }}>
               건물별 안내
             </Link>
           </li>

@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme.js';
 
-import { Home, Login, SignUp, Facility, Notice } from './pages';
+import { Home, Login, SignUp, Facility, Notice, ShowBuilding } from './pages';
 import TermOfUse from './pages/TermOfUse.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import CancelAccount from './pages/CancelAccount.jsx';
@@ -21,6 +21,7 @@ function App() {
             <Route path="/cancelaccount" element={<CancelAccount />} />
             <Route path="/fac/:facId" element={<Facility />} />
             <Route path="/notice" element={<Notice />} />
+            <Route path="/building" element={<ShowBuilding />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
