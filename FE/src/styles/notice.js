@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Header = styled.div`
-  margin: 80px auto;
+  margin: 100px auto;
   width: 730px;
 
   color: black;
@@ -46,6 +46,9 @@ export const Notice = styled.div`
 export const Text = styled.div`
   margin: 0;
   cursor: pointer;
+  &:hover {
+    color: #00462a;
+  }
 `;
 
 export const FooterWrapper = styled.footer`
