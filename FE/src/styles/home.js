@@ -62,6 +62,7 @@ export const SearchBtn = styled.button`
   left: 50%;
   transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
   cursor: pointer;
+  margin-bottom: 40px;
 
   &:hover {
     background-color: ${({ theme }) => theme.subGreen};

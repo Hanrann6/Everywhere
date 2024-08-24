@@ -15,52 +15,37 @@ import bgImg from '../../../assets/home_bg.png';
 
 const CategoryContainer = () => {
   const [keywordList, setKeywordList] = useState([]);
+  const [isClicked, setIsClicked] = useState(false); // 컴포넌트 레벨에서 상태 선언
+  const navigate = useNavigate();
+  const { build_id } = useParams();
 
-  const handleKeywordList = newKeyword => {
+  const handleKeywordList = (newKeyword) => {
     setKeywordList(newKeyword);
   };
 
-  /*
-// 여기부터 시작
-function handleSearch {
-  const navigate = useNavigate();
-  const { build_id, facname } = useParams();
-  const [facility, setFacility] = useState(null);
-  
-  // SearchResults에서 건물만 따로 빼야 함
-  resultUrl = `{API_URL}/fac/buildingId=${KeywordList}`
-  // 예시 
-  ///fac?buildingId=${build_id}&socket_yn=${socket_yn}&eat_yn=true&
+  const handleSearch = async () => {
+    setIsClicked(true); // 버튼이 클릭되었음을 표시
 
-
-  useEffect(() => {
-    async function fetchSearchBtn() {
-      // get 요청 보내기
-      const response = await fetch(`${API_URL}/fac?buildingId=${build_id}&buildingId=100&socket_yn=true&eat_yn=true`)
-    }
-  })
-
-}
-//여기가 끝
-*/
-
-  const handleSearch = () => {
-    // 네트워크를 통해 json 파일을 취득해서 콘솔에 출력하는 코드
+    // 검색 로직을 여기에서 처리합니다.
     async function logJSONData() {
-      const response = await
-    fetch("URL");
-      const jsonData = await response.json(); // json() 메서드 호출
-      console.log(jsonData);
-    }
-    
+      try {
+        const response = await fetch('URL'); // 실제 URL로 변경하세요
+        const jsonData = await response.json(); // JSON 파싱
+        console.log(jsonData);
+      } catch (error) {
+        console.error('Error fetching JSON data:', error);
+      }
 
-    console.log(keywordList);
-    (keywordList[0]) 
-    // TODO: 건물 - 전체 기능 추가 
+      setIsClicked(false); // 데이터 로딩이 끝나면 클릭 상태 해제
+    }
+
+    await logJSONData(); // 비동기 함수 호출
+
+    console.log('keywordList:', keywordList);
   };
 
   return (
-    <section style={{ backgroundImage: { bgImg } }}>
+    <section style={{ backgroundImage: `url(${bgImg})` }}>
       <div>
         <img src="" alt="" />
         <S.H2Text>이화여자대학교 어디로 갈까요?</S.H2Text>
@@ -145,6 +130,7 @@ function handleSearch {
         </div>
         <S.SearchBtn onClick={handleSearch}>
           검색하기 <FontAwesomeIcon icon={faMagnifyingGlass} />
+          {isClicked && console.log('버튼이 클릭되었습니다.')}
         </S.SearchBtn>
       </div>
     </section>
@@ -152,3 +138,4 @@ function handleSearch {
 };
 
 export default CategoryContainer;
+
