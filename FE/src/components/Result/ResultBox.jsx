@@ -1,17 +1,23 @@
 import * as S from './ResultBox.styles';
 import { useNavigate } from 'react-router-dom';
-
 import { FacilityImage } from '../Details';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+import { faLocationDot, faClock } from '@fortawesome/free-solid-svg-icons';
+import defaultImage from '../../assets/gray_ewhalogo.svg';
+
 
 export function ResultBox({ facility }) {
   const navigate = useNavigate();
+
   const onClick = () => {
-    navigate(`${API_URL}/fac/${facility.fac_id}`);
+    navigate(`/fac/${facility.fac_id}`);
   };
+
+  // 조건부 이미지 경로 설정
+  let imagePath = facility.imagepath;
+  if(imagePath == ""){
+    imagePath = defaultImage; 
+  } 
 
   return (
     <S.Box>
@@ -19,7 +25,7 @@ export function ResultBox({ facility }) {
         <FacilityImage
           width="285px"
           height="190px"
-          imagePath={facility.imagepath}
+          imagePath={imagePath}
         />
       </S.Image>
       <S.PostName>{facility.fac_name}</S.PostName>

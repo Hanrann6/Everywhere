@@ -14,6 +14,7 @@ export const NavBarContainer = styled.div`
   padding: 10px;
   margin-top: 0px;
   margin-right: 30px;
+  z-index: 10;
 `;
 
 export const Logo = styled.div`

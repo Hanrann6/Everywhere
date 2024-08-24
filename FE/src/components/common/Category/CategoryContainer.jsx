@@ -155,7 +155,7 @@ const CategoryContainer = () => {
             </S.CategoryUlLi>
           </ul>
         </div>
-        <S.SearchBtn onClick={handleSearch}>
+        <S.SearchBtn onClick={handleSearch} style={S.SearchBtn.SearchBtn}>
           검색하기 <FontAwesomeIcon icon={faMagnifyingGlass} />
         </S.SearchBtn>
         {showResults && <Result results={searchResults} />}
