@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '.';
@@ -19,9 +20,43 @@ const CategoryContainer = () => {
     setKeywordList(newKeyword);
   };
 
+  /*
+// 여기부터 시작
+function handleSearch {
+  const navigate = useNavigate();
+  const { build_id, facname } = useParams();
+  const [facility, setFacility] = useState(null);
+  
+  // SearchResults에서 건물만 따로 빼야 함
+  resultUrl = `{API_URL}/fac/buildingId=${KeywordList}`
+  // 예시 
+  ///fac?buildingId=${build_id}&socket_yn=${socket_yn}&eat_yn=true&
+
+
+  useEffect(() => {
+    async function fetchSearchBtn() {
+      // get 요청 보내기
+      const response = await fetch(`${API_URL}/fac?buildingId=${build_id}&buildingId=100&socket_yn=true&eat_yn=true`)
+    }
+  })
+
+}
+//여기가 끝
+*/
+
   const handleSearch = () => {
-    // TODO: 검색 API 로직 추가
+    // 네트워크를 통해 json 파일을 취득해서 콘솔에 출력하는 코드
+    async function logJSONData() {
+      const response = await
+    fetch("URL");
+      const jsonData = await response.json(); // json() 메서드 호출
+      console.log(jsonData);
+    }
+    
+
     console.log(keywordList);
+    (keywordList[0]) 
+    // TODO: 건물 - 전체 기능 추가 
   };
 
   return (
