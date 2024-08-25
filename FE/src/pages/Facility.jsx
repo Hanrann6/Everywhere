@@ -79,7 +79,9 @@ function Facility() {
                 </span>
               }
               onClick={() => {
-                navigate('/write');
+                navigate(`/writereview/${facId}`, {
+                  state: { facName: fac_name },
+                });
               }}
             ></Button>
           </S.GoReview>
