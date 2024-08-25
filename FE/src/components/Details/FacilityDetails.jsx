@@ -31,7 +31,7 @@ export const FacilityDetails = ({ name, location, time, content }) => {
         {time}
       </S.Text>
       <S.Text color="rgb(0,0,0, 0.6)" size="18px" weight="500">
-        {content}
+        {content && content}
       </S.Text>
     </S.Wrapper>
   );

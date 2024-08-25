@@ -28,4 +28,5 @@ export const ResultList = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
 `;

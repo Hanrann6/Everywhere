@@ -21,7 +21,7 @@ export const Category = styled.button`
 
 export const H2Text = styled.h2`
   position: stickey;
-  margin-top: 110px;
+  margin-top: 140px;
   margin-bottom: 30px;
   text-align: center;
   width: 100%;
@@ -62,7 +62,7 @@ export const SearchBtn = styled.button`
   left: 50%;
   transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 100px;
   .scrollTo(0,0) 
 
   &:hover {

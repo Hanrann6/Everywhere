@@ -9,7 +9,7 @@ export const NavBar = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   function checkLogin() {
-    return sessionStorage.getItem('email') !== null;
+    return sessionStorage.getItem('user_id') !== null;
   }
 
   useEffect(() => {

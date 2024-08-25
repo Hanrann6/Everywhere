@@ -28,7 +28,7 @@ export const Result = ({ results }) => {
       <S.ResultList>
         {safeResults.map(facility => (
           <div key={facility.fac_id}>
-            <ResultBox facility={facility} />  {/* 올바른 props 전달 */}
+            <ResultBox facility={facility} />  
           </div>
         ))}
       </S.ResultList>

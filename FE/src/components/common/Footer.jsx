@@ -11,6 +11,8 @@ const StyledFooter = styled.div`
   justify-content: space-evenly;
   margin: 0 auto;
   padding: 20px 0;
+  position: relative;
+  margin-top: 115px;
 `;
 
 const Option = styled.button`
@@ -20,7 +22,7 @@ const Option = styled.button`
   cursor: pointer;
 `;
 
-export function Footer() {
+export const Footer = () => {
   const navigate = useNavigate();
 
   return (

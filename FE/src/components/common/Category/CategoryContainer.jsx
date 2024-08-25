@@ -16,6 +16,7 @@ import * as S from '../../../styles/home';
 import bgImg from '../../../assets/home_bg.png';
 import { API_URL } from '../../../constants/index.js';
 import { Result } from '../../Result/Result';
+import { Footer } from '../Footer';
 // const [showResults, setShowResults] = useState(false);
 const CategoryContainer = () => {
   const [keywordList, setKeywordList] = useState([]);
@@ -72,9 +73,12 @@ const CategoryContainer = () => {
   };
 
   return (
-    <section style={{ backgroundImage: `url(${bgImg})` }}>
+    <section style={{ 
+      backgroundImage: `url(${bgImg})`,
+      width: "100%",
+      height: "700px"}}>
       <div>
-        <img src="" alt="" />
+        <img src="" alt=""/>
         <S.H2Text>이화여자대학교 어디로 갈까요?</S.H2Text>
         <div>
           <ul style={{ paddingLeft: '0px' }}>
@@ -160,6 +164,7 @@ const CategoryContainer = () => {
         </S.SearchBtn>
         {showResults && <Result results={searchResults} />}
       </div>
+      <Footer /> 
     </section>
   );
 };
