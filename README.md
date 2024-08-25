@@ -55,12 +55,6 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 
 ## 💻 기술 소개
 
-### API
-
-|   API    |                   <img width= 50 src="">                    |                <img width = 50 src="">                |
-| :------: | :---------------------------------------------------------: | :---------------------------------------------------: |
-| **Link** | [link1](https://www.ncloud.com/product/aiService/papagoNmt) | [link2](https://www.ncloud.com/product/aiService/ocr) |
-
 </br>
 
 ### Front-End
