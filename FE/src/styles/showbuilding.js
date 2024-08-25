@@ -1,3 +1,4 @@
+// showbuilding.js
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -24,27 +25,38 @@ export const MenuBar = styled.div`
 
 export const StyledGoback = styled.div``;
 
-export const StyledMenu = styled.div`
+export const StyledMenu = styled.div.attrs(props => ({
+  style: {
+    backgroundColor: props.backgroundColor || '#979797'
+  }
+}))`
   margin-right: 8px;
   margin-bottom: 5px;
   font-size: 14px;
-  background-color: #979797;
   color: white;
   display: flex;
   border-radius: 20px;
   padding: 10px 18px;
   white-space: nowrap;
   cursor: pointer;
-  &:hover,
+  transition: transform 0.3s linear;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: ${({ theme }) => theme.ewhaGreen};
+  }
+
   &.active {
-    background-color: #25691f;
+    background-color: ${({ theme }) => theme.subGreen};
   }
 `;
 
 export const Body = styled.div`
   padding: 30px 280px;
   height: 470px;
+  background-size: cover;
 `;
+
 export const BuildingName = styled.div`
   font-size: 23px;
   font-weight: 700;

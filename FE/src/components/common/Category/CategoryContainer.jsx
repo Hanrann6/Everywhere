@@ -76,7 +76,7 @@ const CategoryContainer = () => {
     <section style={{ 
       backgroundImage: `url(${bgImg})`,
       width: "100%",
-      height: "700px"}}>
+      height: "630px"}}>
       <div>
         <img src="" alt=""/>
         <S.H2Text>이화여자대학교 어디로 갈까요?</S.H2Text>

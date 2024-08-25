@@ -21,7 +21,7 @@ export const Category = styled.button`
 
 export const H2Text = styled.h2`
   position: stickey;
-  margin-top: 140px;
+  margin-top: 120px;
   margin-bottom: 30px;
   text-align: center;
   width: 100%;
@@ -60,13 +60,14 @@ export const SearchBtn = styled.button`
   position: relative;
   top: 0px;
   left: 50%;
-  transform: translateX(-50%); /*왼쪽으로 요소의 50% 너비만큼 이동*/
+  transform: translateX(-50%); /* 요소의 수평 중심으로 이동 */
   cursor: pointer;
   margin-bottom: 100px;
-  .scrollTo(0,0) 
+  transition: transform 0.3s linear;
+  transform-origin: center; /* 변환의 중심을 요소의 중앙으로 설정 */
 
   &:hover {
-    background-color: ${({ theme }) => theme.subGreen};
+    transform: translateX(-50%) scale(1.1); /* 수평 이동 후 확대 */
   }
 `;
 
