@@ -61,6 +61,7 @@ export const Flour = [
 
 const ShowBuilding = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+
   const handleClick = index => {
     setActiveIndex(index);
   };
@@ -76,7 +77,8 @@ const ShowBuilding = () => {
           {MENU_NAME.map((key, index) => (
             <S.StyledMenu
               key={index}
-              className={activeIndex === index ? 'active ' : ''}
+              className={activeIndex === index ? 'active' : ''}
+              backgroundColor={index === 8 ? '#25691F' : undefined} // 인덱스 8인 항목에만 초록색 배경 적용
               onClick={() => handleClick(index)}
             >
               {key}

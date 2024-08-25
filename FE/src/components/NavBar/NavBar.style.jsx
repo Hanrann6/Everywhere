@@ -17,9 +17,9 @@ export const NavBarContainer = styled.div`
   z-index: 10;
 `;
 
-export const Logo = styled.div`
+export const NavLogo = styled.div`
   
-  margin-left: 10px;
+  margin-left: 20px;
 
   a {
     text-decoration: none;
@@ -27,17 +27,6 @@ export const Logo = styled.div`
   }
 `;
 
-export const LogoTextE = styled.span`
-  color: ${({ theme }) => theme.ewhaGreen};
-  font-weight: bold;
-  font-size: 1.7em;
-`;
-
-export const LogoTextEverywhere = styled.span`
-  color: ${({ theme }) => theme.black};
-  font-weight: bold;
-  font-size: 1.3em;
-`;
 
 const StyledLink = styled(Link)`
   color: #424242;

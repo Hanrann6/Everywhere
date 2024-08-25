@@ -11,6 +11,7 @@ import { GoBack } from '../components';
 import { API_URL } from '../constants';
 import * as S from '../styles/facility';
 import { LuPencil } from 'react-icons/lu';
+import defaultImage from '../assets/gray_ewhalogo.svg';
 
 function Facility() {
   const navigate = useNavigate();
@@ -38,8 +39,12 @@ function Facility() {
   if (error) return <div>Error: {error}</div>;
   if (!facility) return null;
 
-  const { imagepath, flour, fac_name, time, info } = facility;
-
+  const { flour, fac_name, time, info } = facility;
+  // 조건부 이미지 경로 설정
+  let imagePath = facility.imagepath;
+  if (imagePath == '' || imagePath==null) {
+    imagePath = defaultImage;
+  }
   return (
     <S.Wrapper>
       <NavBar />
@@ -48,7 +53,7 @@ function Facility() {
         <S.Text>시설 상세 정보</S.Text>
       </S.Header>
       <S.ContentBox>
-        <FacilityImage width="450px" height="337px" imagePath={imagepath} />
+        <FacilityImage width="450px" height="337px" imagePath={imagePath} />
         <S.TextBox>
           <FacilityDetails
             location={flour}

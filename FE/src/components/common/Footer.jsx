@@ -11,6 +11,12 @@ const StyledFooter = styled.div`
   justify-content: space-evenly;
   margin: 0 auto;
   padding: 20px 0;
+  position: relative;
+  margin-top: 115px;
+  &:hover {
+    font-color: #00462a;
+    font-weight: bold;
+  }
 `;
 
 const Option = styled.button`
@@ -20,7 +26,7 @@ const Option = styled.button`
   cursor: pointer;
 `;
 
-export function Footer() {
+export const Footer = () => {
   const navigate = useNavigate();
 
   return (
@@ -32,4 +38,4 @@ export function Footer() {
       <Option onClick={() => navigate('/cancelaccount')}>회원탈퇴</Option>
     </StyledFooter>
   );
-}
+};

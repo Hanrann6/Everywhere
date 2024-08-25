@@ -43,6 +43,7 @@ const getColor = index => {
 };
 
 export const Border = styled.div`
+  margin-top: 0px;
   width: 680px;
   height: 650px;
   margin: 0 auto;
@@ -115,7 +116,7 @@ export const ID = styled.div`
 `;
 
 export const Date = styled.div`
-  width: 96px;
+  width: 110px;
   height: 50px;
   font-size: 17px;
   font-weight: 500;
@@ -129,14 +130,13 @@ export const Date = styled.div`
 
 export const Content = styled.div`
   width: 560px;
-  height: 100px;
+  height: 20px;
   border-radius: 30px;
   background-color: #e2e2e2;
   margin-top: 20px;
   padding: 30px;
-
   text-align: left;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
 `;
 

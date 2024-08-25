@@ -17,7 +17,7 @@ export const Logo = () => {
 export const NavLogo = () => {
   return (
     <Link to="/">
-      <img src={Nav} alt="Everywhere" width="124" height="21" padding-left="20px" />
+      <img src={Nav} alt="Everywhere" width="124" height="21" padding-left="20px" margin-left='100px'/>
     </Link>
   );
 };

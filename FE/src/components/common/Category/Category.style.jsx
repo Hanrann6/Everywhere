@@ -19,10 +19,14 @@ export const Category = styled.button`
   font-weight: bold;
   margin-right: 3px;
   cursor: ${props => (props.color === theme.black ? undefined : 'pointer')};
+  transition: transform 0.3s linear;
+
 
   &:hover {
     background-color: ${props =>
       props.color === theme.black ? undefined : theme.ewhaGreen};
+    transform: ${props =>
+      props.color === theme.black ? 'none' : 'scale(1.05)'}; 
   }
 
   &.active {
