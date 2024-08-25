@@ -11,6 +11,8 @@ export const keywordText = {
   conv_YN: '편의시설',
   cafe_YN: '식음료점',
   computer_YN: 'PC',
+  printer_YN: '프린터',
+  nonstop_YN: '24시간',
   reserve_YN: '공간 예약',
   seat_YN: '좌석 발급',
 };
