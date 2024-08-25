@@ -50,7 +50,7 @@ export const Review = () => {
               <S.Profile>
                 <CiUser size="40px" />
               </S.Profile>
-              <S.ID> 익명 {review.review_id}</S.ID>
+              <S.ID> 익명 </S.ID>
               <S.Date> {review.date.substr(0, 10)} </S.Date>
             </S.Detail>
             <S.Content>{review.content}</S.Content>

@@ -62,7 +62,9 @@ function WriteReview() {
       const data = await res.json();
       console.log(data);
 
-      navigate(`/printreview/${facId}`);
+      navigate(`/printreview/${facId}`, {
+        state: { props: facName },
+      });
     }
   };
 
@@ -149,7 +151,7 @@ function WriteReview() {
           <Button
             title={
               <span style={{ display: 'flex', alignItems: 'center' }}>
-                리뷰 작성하기
+                리뷰 등록하기
                 <LuPencil size={18} style={{ marginLeft: '6px' }} />
               </span>
             }

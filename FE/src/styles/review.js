@@ -100,7 +100,7 @@ export const Detail = styled.div`
 `;
 
 export const ID = styled.div`
-  width: 60px;
+  width: 70px;
   height: 50px;
   font-size: 20px;
   font-weight: 600;
