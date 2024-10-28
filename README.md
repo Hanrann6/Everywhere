@@ -35,9 +35,8 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 
 ## 👨‍🍳 팀 소개
 
-| [link1](https://github.com/moaikang) | [link2](https://github.com/pje1740)  |  [link3](https://github.com/kas136)  | [link4](https://github.com/kgs19970120) | [link5](https://github.com/rile1036) |
+| - | [link2](https://github.com/pje1740)  |  [link3](https://github.com/daj33)  | [link4](https://github.com/ruiiary) | [link5](https://github.com/rile1036) |
 | :----------------------------------: | :----------------------------------: | :----------------------------------: | :-------------------------------------: | :----------------------------------: |
-| ![](https://i.imgur.com/zmCKLZz.jpg) | ![](https://i.imgur.com/L6YXjBe.jpg) | ![](https://i.imgur.com/r0KdRs2.jpg) |  ![](https://i.imgur.com/cucP2S4.jpg)   | ![](https://i.imgur.com/tX8mqPg.jpg) |
 |              **한도경**              |              **김다지**              |              **김민솔**              |               **전윤서**                |               **육란**               |
 |             **UI/UX 🎨**             |              **FE 🌐**               |              **FE 🌐**               |                **FE 🌐**                |              **BE 💻**               |
 
@@ -47,7 +46,7 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 
 > **김민솔** 🌭 : 민솔님 한 줄 소개
 
-> **전윤서** 🍩 : 윤서님 한 줄 소개
+> **전윤서** 🍩 : 프론트엔드를 맡은 융합콘텐츠학과 전윤서입니다! 처음 프로젝트를 맡아 어려운 점도 많았지만 같이 성장할 수 있는 팀원들이 있어 재밌게 프로젝트를 했던 것 같습니다 :) 
 
 > **육란 🥯** : 란님 한 줄 소개
 
@@ -55,19 +54,13 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 
 ## 💻 기술 소개
 
-### API
-
-|   API    |                   <img width= 50 src="">                    |                <img width = 50 src="">                |
-| :------: | :---------------------------------------------------------: | :---------------------------------------------------: |
-| **Link** | [link1](https://www.ncloud.com/product/aiService/papagoNmt) | [link2](https://www.ncloud.com/product/aiService/ocr) |
-
 </br>
 
 ### Front-End
 
-|      Spec       | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557331/noticon/d5hqar2idkoefh6fjtpu.png"> | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1567749614/noticon/zgdaxpaif5ojeduonygb.png"> | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png"> |
-| :-------------: | :--------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
-| **Description** |                                                            React                                                             |                                                            Redux                                                             |                                                      Styled-Components                                                       |
+|      Spec       | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566557331/noticon/d5hqar2idkoefh6fjtpu.png"> | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1568851518/noticon/lwj3hr9v1yoheimtwc1w.png"> |
+| :-------------: | :--------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------: |
+| **Description** |                                                            React                                                             |                                                                                                 Styled-Components                                                       |
 
 </br>
 
@@ -78,15 +71,6 @@ Everywhere는 팀플 회의, 타이핑 등 상황에 맞는 공간을 키워드�
 | **Description** |                                                          TypeScript                                                          |                                                           Express                                                            |                       SocketIO                        |                                            Redis                                             |                          PM2                          |
 
 </br>
-
-### Infrastructure
-
-|      Spec       | <img width= 50 src="https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1566798146/noticon/lku5cppzh8r7awwsmmko.png"> | <img width= 50 src="https://cdn-images-1.medium.com/max/1200/1*r5KdIfHXaz7UQM4FmZ0D5A.png"> |
-| :-------------: | :--------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: |
-| **Description** |                                                            Nginx                                                             |                                             NCP                                             |
-
-<br/>
-
 <br/>
 
 ## 🎨 Color Scheme
